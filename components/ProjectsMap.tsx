@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
 import L from 'leaflet';
-import { PROJECTS } from '../constants';
+import { PROJECTS, MAP_POINTS } from '../constants';
 import { MapPin, X } from 'lucide-react';
 
 // Fix for default Leaflet marker icons in React
@@ -63,19 +63,19 @@ function FixLeafletResize() {
 const ProjectsMap = () => {
   const [showOverlayCard, setShowOverlayCard] = useState(true);
 
-  // Center of Argentina (approx)
-  const centerPosition: [number, number] = [-38.4161, -63.6167];
-  const zoomLevel = 6;
+  // Centro en zona de Tandil / SE Bonaerense
+  const centerPosition: [number, number] = [-37.75, -59.25];
+  const zoomLevel = 9;
 
   return (
     <section id="obras" className="relative bg-slate-900 border-t border-slate-800">
       <div className="absolute top-0 left-0 w-full z-10 pointer-events-none p-8 md:p-12 bg-gradient-to-b from-slate-900/90 to-transparent h-48">
         <div className="max-w-7xl mx-auto px-4">
           <h2 className="text-3xl font-bold text-white text-center md:text-left drop-shadow-md">
-            Obras Realizadas
+            Presencia territorial
           </h2>
-          <p className="text-galtech-accent font-medium text-center md:text-left drop-shadow-sm">
-            Proyectos ejecutados por Galtech en todo el país
+          <p className="text-gray-300 text-sm md:text-base text-center md:text-left drop-shadow-sm max-w-xl mt-1">
+            Ejecutamos obras industriales en distintas localidades, acompañando el crecimiento productivo de nuestros clientes.
           </p>
         </div>
       </div>
@@ -159,38 +159,18 @@ const ProjectsMap = () => {
             url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
           />
           
-          {PROJECTS.map((project) => (
-            <Marker 
-              key={project.id} 
-              position={[project.lat, project.lng]} 
+          {MAP_POINTS.map((point) => (
+            <Marker
+              key={point.id}
+              position={[point.lat, point.lng]}
               icon={customIcon}
             >
               <Popup>
-                <div className="w-full">
-                  <div className="h-32 w-full mb-3 overflow-hidden rounded-sm relative">
-                    <img 
-                      src={project.imageUrl} 
-                      alt={project.title} 
-                      className="w-full h-full object-cover"
-                    />
-                    <div className="absolute bottom-0 left-0 bg-galtech-accent text-white text-xs font-bold px-2 py-1">
-                      {project.year}
-                    </div>
-                  </div>
-                  <h3 className="font-bold text-slate-900 text-sm mb-1">{project.title}</h3>
-                  <div className="text-xs text-slate-600 flex items-center mb-1">
-                    <MapPin size={12} className="mr-1" /> {project.location}
-                  </div>
-                  <div className="border-t border-slate-100 mt-2 pt-2 grid grid-cols-2 gap-2 text-xs">
-                    <div>
-                      <span className="block text-slate-400">Superficie</span>
-                      <span className="font-semibold text-slate-800">{project.area}</span>
-                    </div>
-                    <div>
-                      <span className="block text-slate-400">Tipo</span>
-                      <span className="font-semibold text-slate-800">{project.type}</span>
-                    </div>
-                  </div>
+                <div className="px-1 py-0.5">
+                  <p className="font-bold text-slate-900 text-sm">{point.title}</p>
+                  <p className="text-xs text-slate-500 flex items-center gap-1 mt-0.5">
+                    <MapPin size={11} /> {point.location}
+                  </p>
                 </div>
               </Popup>
             </Marker>
