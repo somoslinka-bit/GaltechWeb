@@ -5,7 +5,7 @@ const Hero = () => {
   return (
     <section className="relative h-screen min-h-[600px] flex items-center justify-center overflow-hidden">
       {/* Video Background */}
-      <div className="absolute inset-0 w-full h-full bg-slate-900">
+      <div className="absolute inset-0 w-full h-full">
         <div className="absolute inset-0 bg-slate-900/60 z-10" />
         <video
           autoPlay
@@ -15,7 +15,6 @@ const Hero = () => {
           preload="auto"
           poster="/hero-poster.jpg"
           className="w-full h-full object-cover"
-          style={{ objectPosition: 'center 70%', transform: 'scale(0.85)', transformOrigin: 'center 70%' }}
           ref={(el) => {
             if (el) {
               el.play().catch(() => {});
