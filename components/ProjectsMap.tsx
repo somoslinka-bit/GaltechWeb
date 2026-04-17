@@ -166,8 +166,15 @@ const ProjectsMap = () => {
               icon={customIcon}
             >
               <Popup>
-                <div className="px-1 py-0.5">
-                  <p className="font-bold text-slate-900 text-sm">{point.title}</p>
+                <div className="w-48">
+                  <div className="h-28 w-full overflow-hidden rounded-sm mb-2">
+                    <img
+                      src={point.imageUrl}
+                      alt={point.title}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                  <p className="font-bold text-slate-900 text-sm leading-tight">{point.title}</p>
                   <p className="text-xs text-slate-500 flex items-center gap-1 mt-0.5">
                     <MapPin size={11} /> {point.location}
                   </p>
