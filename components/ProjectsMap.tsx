@@ -169,8 +169,8 @@ const ProjectsMap = () => {
               position={[point.lat, point.lng]}
               icon={customIcon}
             >
-              <Popup minWidth={220}>
-                <div style={{ width: 220, margin: '-13px -20px -13px', overflow: 'hidden', borderRadius: 8 }}>
+              <Popup minWidth={280}>
+                <div style={{ width: 280, overflow: 'hidden', borderRadius: 8 }}>
                   <div style={{ height: 130, overflow: 'hidden' }}>
                     <img
                       src={point.imageUrl}
