@@ -40,17 +40,17 @@ const Hero = () => {
 
           <div className="flex flex-col sm:flex-row gap-4">
             <a
-              href="#contacto"
+              href="#obras"
               className="inline-flex items-center justify-center px-8 py-4 bg-galtech-accent text-white font-bold text-lg rounded-sm hover:bg-galtech-accent transition-colors shadow-lg hover:shadow-orange-300/20"
             >
-              Solicitar Cotización
+              Ver proyectos
               <ChevronRight className="ml-2 w-5 h-5" />
             </a>
             <a
-              href="#servicios"
+              href="#contacto"
               className="inline-flex items-center justify-center px-8 py-4 bg-transparent border-2 border-white text-white font-bold text-lg rounded-sm hover:bg-white hover:text-slate-900 transition-all"
             >
-              Conocer Servicios
+              Solicitar asesoramiento
             </a>
           </div>
         </div>
