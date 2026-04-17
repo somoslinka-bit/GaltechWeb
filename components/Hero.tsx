@@ -14,7 +14,8 @@ const Hero = () => {
           playsInline
           preload="auto"
           poster="/hero-poster.jpg"
-          className="w-full h-full object-cover object-top"
+          className="w-full h-full object-cover"
+          style={{ objectPosition: 'center 70%' }}
           ref={(el) => {
             if (el) {
               el.play().catch(() => {});
