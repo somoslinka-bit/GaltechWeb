@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GALTECH | Ingeniería y Estructuras Metálicas</title>
+    <meta name="description" content="Soluciones integrales en galpones, naves industriales y grandes superficies.">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link
+  href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+  rel="stylesheet"
+/>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+    <script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          galtech: {
+            dark: '#0f172a',   // Slate 900
+            blue: '#1e3a8a',   // Blue 900
+            accent: '#ff8727', // Orange 500
+            light: '#f3f4f6',  // Gray 100
+          },
+        },
+        fontFamily: {
+          sans: ['Poppins', 'system-ui', 'sans-serif'],
+        },
+        animation: {
+          marquee: 'marquee 30s linear infinite',
+        },
+        keyframes: {
+          marquee: {
+            '0%': { transform: 'translateX(0)' },
+            '100%': { transform: 'translateX(-50%)' },
+          },
+        },
+      },
+    },
+  };
+</script>
+    <style>
+      /* Smooth scrolling for anchor links */
+      html {
+        scroll-behavior: smooth;
+      }
+      /* Map overrides */
+      .leaflet-popup-content-wrapper {
+        border-radius: 4px;
+        padding: 0;
+        overflow: hidden;
+      }
+      .leaflet-popup-content {
+        margin: 0;
+        width: 280px !important;
+      }
+    </style>
+</head>
+  <body class="bg-white text-gray-800 antialiased font-sans">
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+  </body>
+</html>
