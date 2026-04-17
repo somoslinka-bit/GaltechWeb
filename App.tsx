@@ -7,6 +7,7 @@ import Services from './components/Services';
 import WhyUs from './components/WhyUs';
 import ProjectsMap from './components/ProjectsMap';
 import Process from './components/Process';
+import FAQ from './components/FAQ';
 import ContactCTA from './components/ContactCTA';
 import Footer from './components/Footer';
 import ProjectsPage from './components/ProjectsPage';
@@ -47,6 +48,7 @@ function App() {
         <Clients />
         <ProjectsMap />
         <Process />
+        <FAQ />
         <ContactCTA />
       </main>
       <Footer />
