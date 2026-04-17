@@ -3,6 +3,16 @@ import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
 import L from 'leaflet';
 import { PROJECTS, MAP_POINTS } from '../constants';
 import { MapPin, X } from 'lucide-react';
+import {
+  Stories,
+  StoriesContent,
+  Story,
+  StoryImage,
+  StoryOverlay,
+  StoryTitle,
+  StoryAuthor,
+  StoryAuthorName,
+} from './ui/stories-carousel';
 
 // Fix for default Leaflet marker icons in React
 const iconUrl = 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png';
@@ -91,35 +101,36 @@ const ProjectsMap = () => {
             </p>
           </div>
 
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {PROJECTS.slice(0, 4).map((project) => (
-              <article
-                key={`card-${project.id}`}
-                className="relative h-72 overflow-hidden rounded-lg cursor-pointer group"
-              >
-                <img
-                  src={project.imageUrl}
-                  alt={project.title}
-                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                  loading="lazy"
-                  referrerPolicy="no-referrer"
-                  onError={(e) => {
-                    e.currentTarget.src =
-                      "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=1200&q=80";
-                  }}
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-                <div className="absolute bottom-0 left-0 right-0 p-4">
-                  <span className="inline-block px-2.5 py-0.5 text-xs font-semibold bg-galtech-accent text-white rounded mb-2">
-                    {project.type}
-                  </span>
-                  <h4 className="text-white font-bold text-base leading-tight">
-                    {project.title}
-                  </h4>
-                </div>
-              </article>
-            ))}
-          </div>
+          <Stories>
+            <StoriesContent>
+              {MAP_POINTS.slice(0, 14).map((point) => (
+                <Story key={point.id} className="aspect-[3/4] w-[180px] md:w-[200px]">
+                  <StoryImage
+                    alt={point.title}
+                    src={point.imageUrl}
+                    onError={(e) => {
+                      e.currentTarget.src =
+                        'https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=400&q=80';
+                    }}
+                  />
+                  <StoryOverlay side="top" />
+                  <StoryOverlay side="bottom" />
+                  <StoryTitle className="text-xs font-bold uppercase tracking-wide text-[#ff8727]">
+                    Obra ejecutada
+                  </StoryTitle>
+                  <StoryAuthor>
+                    <MapPin className="w-3 h-3 shrink-0 text-[#ff8727]" />
+                    <StoryAuthorName className="text-xs">{point.location}</StoryAuthorName>
+                  </StoryAuthor>
+                </Story>
+              ))}
+            </StoriesContent>
+          </Stories>
+
+          {/* Nombre del proyecto debajo del carousel */}
+          <p className="mt-3 text-xs text-slate-400 text-right">
+            Deslizá para ver más →
+          </p>
 
           <div className="mt-10 text-center">
             <a
