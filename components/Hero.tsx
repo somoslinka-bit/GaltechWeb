@@ -14,7 +14,7 @@ const Hero = () => {
           playsInline
           preload="auto"
           poster="/hero-poster.jpg"
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover object-top"
           ref={(el) => {
             if (el) {
               el.play().catch(() => {});
