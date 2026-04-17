@@ -45,16 +45,16 @@ const Services = () => {
   });
 
   return (
-    <section id="servicios" className="bg-slate-950">
+    <section id="servicios" className="bg-white">
       {/* Encabezado de sección */}
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pt-24 pb-12 text-center">
         <span className="inline-block text-[#ff8727] font-bold uppercase tracking-widest text-sm mb-3">
           Servicios
         </span>
-        <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+        <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4">
           Soluciones Industriales Integrales
         </h2>
-        <p className="text-lg text-slate-400 max-w-2xl mx-auto">
+        <p className="text-lg text-slate-600 max-w-2xl mx-auto">
           Abarcamos todas las etapas del proyecto, desde el cálculo inicial hasta el montaje final, asegurando calidad y durabilidad.
         </p>
       </div>
