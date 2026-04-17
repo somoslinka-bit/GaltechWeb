@@ -169,19 +169,27 @@ const ProjectsMap = () => {
               position={[point.lat, point.lng]}
               icon={customIcon}
             >
-              <Popup>
-                <div className="w-48">
-                  <div className="h-28 w-full overflow-hidden rounded-sm mb-2">
+              <Popup minWidth={220}>
+                <div style={{ width: 220, margin: '-13px -20px -13px', overflow: 'hidden', borderRadius: 8 }}>
+                  <div style={{ height: 130, overflow: 'hidden' }}>
                     <img
                       src={point.imageUrl}
                       alt={point.title}
-                      className="w-full h-full object-cover"
+                      style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
                     />
                   </div>
-                  <p className="font-bold text-slate-900 text-sm leading-tight">{point.title}</p>
-                  <p className="text-xs text-slate-500 flex items-center gap-1 mt-0.5">
-                    <MapPin size={11} /> {point.location}
-                  </p>
+                  <div style={{ padding: '10px 14px 14px', background: '#fff' }}>
+                    <span style={{ display: 'inline-block', background: '#ff8727', color: '#fff', fontSize: 10, fontWeight: 700, padding: '2px 7px', borderRadius: 3, letterSpacing: '0.5px', textTransform: 'uppercase', marginBottom: 6 }}>
+                      Obra ejecutada
+                    </span>
+                    <p style={{ fontWeight: 700, color: '#0f172a', fontSize: 13, lineHeight: 1.3, margin: '0 0 5px' }}>
+                      {point.title}
+                    </p>
+                    <p style={{ color: '#64748b', fontSize: 11, margin: 0, display: 'flex', alignItems: 'center', gap: 4 }}>
+                      <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#ff8727" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                      {point.location}
+                    </p>
+                  </div>
                 </div>
               </Popup>
             </Marker>
