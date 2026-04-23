@@ -2,13 +2,20 @@ import React, { useState } from 'react';
 import { ArrowLeft, MapPin } from 'lucide-react';
 import { LOGO_BASE64 } from '../constants';
 
-type Category = 'todos' | 'agroquimicos' | 'locales' | 'tinglados';
+type Category =
+  | 'todos'
+  | 'agroquimicos'
+  | 'depositos'
+  | 'locales'
+  | 'camara-frio'
+  | 'viviendas'
+  | 'canchas';
 
 interface Project {
   id: number;
   title: string;
   location: string;
-  category: Category;
+  category: Exclude<Category, 'todos'>;
   categoryLabel: string;
   area: string;
   year: string;
@@ -62,6 +69,51 @@ const CATEGORY_PROJECTS: Project[] = [
     description: 'Nave industrial para formulación y envasado de agroquímicos con estándares internacionales de seguridad.',
     imageUrl: 'https://images.unsplash.com/photo-1553413077-190dd305871c?auto=format&fit=crop&q=80&w=600',
   },
+  // Depósitos y Naves Industriales
+  {
+    id: 9,
+    title: 'Tinglado Logístico Zona Norte',
+    location: 'Campana, Buenos Aires',
+    category: 'depositos',
+    categoryLabel: 'Depósitos y Naves Industriales',
+    area: '12.000 m²',
+    year: '2024',
+    description: 'Gran tinglado para operaciones logísticas con portones automatizados y docks de carga.',
+    imageUrl: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=600',
+  },
+  {
+    id: 10,
+    title: 'Tinglado Industrial Parque Sur',
+    location: 'Neuquén',
+    category: 'depositos',
+    categoryLabel: 'Depósitos y Naves Industriales',
+    area: '7.500 m²',
+    year: '2023',
+    description: 'Tinglado para almacenamiento industrial con estructura de acero galvanizado y cubierta tipo sándwich.',
+    imageUrl: 'https://images.unsplash.com/photo-1531834685032-c34bf0d84c77?auto=format&fit=crop&q=80&w=600',
+  },
+  {
+    id: 11,
+    title: 'Tinglado Agropecuario',
+    location: 'Tandil, Buenos Aires',
+    category: 'depositos',
+    categoryLabel: 'Depósitos y Naves Industriales',
+    area: '4.200 m²',
+    year: '2023',
+    description: 'Tinglado para almacenamiento de maquinaria agrícola y granos con ventilación natural.',
+    imageUrl: 'https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&q=80&w=600',
+  },
+  {
+    id: 12,
+    title: 'Tinglado Portuario',
+    location: 'Bahía Blanca, Buenos Aires',
+    category: 'depositos',
+    categoryLabel: 'Depósitos y Naves Industriales',
+    area: '9.800 m²',
+    year: '2022',
+    description: 'Tinglado de grandes luces para operaciones portuarias con resistencia a vientos costeros.',
+    imageUrl: 'https://images.unsplash.com/photo-1553413077-190dd305871c?auto=format&fit=crop&q=80&w=600',
+  },
   // Locales Comerciales
   {
     id: 5,
@@ -107,59 +159,26 @@ const CATEGORY_PROJECTS: Project[] = [
     description: 'Construcción de local ancla para cadena de supermercados con cámara frigorífica integrada.',
     imageUrl: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&q=80&w=600',
   },
-  // Tinglados
-  {
-    id: 9,
-    title: 'Tinglado Logístico Zona Norte',
-    location: 'Campana, Buenos Aires',
-    category: 'tinglados',
-    categoryLabel: 'Tinglados',
-    area: '12.000 m²',
-    year: '2024',
-    description: 'Gran tinglado para operaciones logísticas con portones automatizados y docks de carga.',
-    imageUrl: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=600',
-  },
-  {
-    id: 10,
-    title: 'Tinglado Industrial Parque Sur',
-    location: 'Neuquén',
-    category: 'tinglados',
-    categoryLabel: 'Tinglados',
-    area: '7.500 m²',
-    year: '2023',
-    description: 'Tinglado para almacenamiento industrial con estructura de acero galvanizado y cubierta tipo sándwich.',
-    imageUrl: 'https://images.unsplash.com/photo-1531834685032-c34bf0d84c77?auto=format&fit=crop&q=80&w=600',
-  },
-  {
-    id: 11,
-    title: 'Tinglado Agropecuario',
-    location: 'Tandil, Buenos Aires',
-    category: 'tinglados',
-    categoryLabel: 'Tinglados',
-    area: '4.200 m²',
-    year: '2023',
-    description: 'Tinglado para almacenamiento de maquinaria agrícola y granos con ventilación natural.',
-    imageUrl: 'https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&q=80&w=600',
-  },
-  {
-    id: 12,
-    title: 'Tinglado Portuario',
-    location: 'Bahía Blanca, Buenos Aires',
-    category: 'tinglados',
-    categoryLabel: 'Tinglados',
-    area: '9.800 m²',
-    year: '2022',
-    description: 'Tinglado de grandes luces para operaciones portuarias con resistencia a vientos costeros.',
-    imageUrl: 'https://images.unsplash.com/photo-1553413077-190dd305871c?auto=format&fit=crop&q=80&w=600',
-  },
+  // Cámara y Procesado en Frío — próximamente
+  // Viviendas y Oficinas — próximamente
+  // Canchas y Polideportivos — próximamente
 ];
 
 const categories: { key: Category; label: string }[] = [
   { key: 'todos', label: 'Todos' },
   { key: 'agroquimicos', label: 'Agroquímicos' },
+  { key: 'depositos', label: 'Depósitos y Naves Industriales' },
   { key: 'locales', label: 'Locales Comerciales' },
-  { key: 'tinglados', label: 'Tinglados' },
+  { key: 'camara-frio', label: 'Cámara y Procesado en Frío' },
+  { key: 'viviendas', label: 'Viviendas y Oficinas' },
+  { key: 'canchas', label: 'Canchas y Polideportivos' },
 ];
+
+const EMPTY_STATE_LABELS: Partial<Record<Category, string>> = {
+  'camara-frio': 'Cámara y Procesado en Frío',
+  'viviendas': 'Viviendas y Oficinas',
+  'canchas': 'Canchas y Polideportivos',
+};
 
 const ProjectsPage = () => {
   const [activeCategory, setActiveCategory] = useState<Category>('todos');
@@ -167,6 +186,8 @@ const ProjectsPage = () => {
   const filteredProjects = activeCategory === 'todos'
     ? CATEGORY_PROJECTS
     : CATEGORY_PROJECTS.filter((p) => p.category === activeCategory);
+
+  const showEmptyState = filteredProjects.length === 0;
 
   return (
     <div className="min-h-screen bg-white font-sans">
@@ -225,65 +246,84 @@ const ProjectsPage = () => {
       {/* Projects Grid */}
       <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between mb-8">
-            <p className="text-gray-500 text-sm">
-              {filteredProjects.length} proyecto{filteredProjects.length !== 1 ? 's' : ''} encontrado{filteredProjects.length !== 1 ? 's' : ''}
-            </p>
-          </div>
 
-          <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-            {filteredProjects.map((project) => (
-              <article
-                key={project.id}
-                className="bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all hover:-translate-y-1"
-              >
-                <div className="h-56 w-full overflow-hidden relative">
-                  <img
-                    src={project.imageUrl}
-                    alt={project.title}
-                    className="w-full h-full object-cover transition-transform hover:scale-105"
-                    loading="lazy"
-                    referrerPolicy="no-referrer"
-                    onError={(e) => {
-                      e.currentTarget.src =
-                        'https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=1200&q=80';
-                    }}
-                  />
-                  <div className="absolute top-3 left-3">
-                    <span className="inline-flex items-center px-3 py-1 rounded-sm text-xs font-bold bg-galtech-accent text-white shadow">
-                      {project.categoryLabel}
-                    </span>
-                  </div>
-                </div>
+          {showEmptyState ? (
+            <div className="flex flex-col items-center justify-center py-24 text-center">
+              <div className="w-16 h-16 rounded-full bg-gray-100 flex items-center justify-center mb-6">
+                <svg className="w-8 h-8 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+                </svg>
+              </div>
+              <h3 className="text-xl font-bold text-slate-800 mb-2">
+                Proyectos de {EMPTY_STATE_LABELS[activeCategory] ?? 'esta categoría'} próximamente
+              </h3>
+              <p className="text-gray-500 max-w-md">
+                Estamos cargando los proyectos de este rubro. Volvé pronto o contactanos para conocer más sobre nuestras obras.
+              </p>
+            </div>
+          ) : (
+            <>
+              <div className="flex items-center justify-between mb-8">
+                <p className="text-gray-500 text-sm">
+                  {filteredProjects.length} proyecto{filteredProjects.length !== 1 ? 's' : ''} encontrado{filteredProjects.length !== 1 ? 's' : ''}
+                </p>
+              </div>
 
-                <div className="p-6">
-                  <div className="flex items-center gap-3 mb-3">
-                    <span className="text-xs font-medium text-gray-500">{project.year}</span>
-                    <span className="text-gray-300">|</span>
-                    <span className="text-xs text-gray-500 flex items-center">
-                      <MapPin className="w-3 h-3 mr-1" />
-                      {project.location}
-                    </span>
-                  </div>
-
-                  <h3 className="text-xl font-bold text-slate-900 mb-2">
-                    {project.title}
-                  </h3>
-
-                  <p className="text-gray-600 text-sm leading-relaxed mb-4">
-                    {project.description}
-                  </p>
-
-                  <div className="flex items-center justify-between pt-4 border-t border-gray-100">
-                    <div>
-                      <span className="block text-xs text-gray-400">Superficie</span>
-                      <span className="font-semibold text-slate-800">{project.area}</span>
+              <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+                {filteredProjects.map((project) => (
+                  <article
+                    key={project.id}
+                    className="bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm hover:shadow-lg transition-all hover:-translate-y-1"
+                  >
+                    <div className="h-56 w-full overflow-hidden relative">
+                      <img
+                        src={project.imageUrl}
+                        alt={project.title}
+                        className="w-full h-full object-cover transition-transform hover:scale-105"
+                        loading="lazy"
+                        referrerPolicy="no-referrer"
+                        onError={(e) => {
+                          e.currentTarget.src =
+                            'https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=1200&q=80';
+                        }}
+                      />
+                      <div className="absolute top-3 left-3">
+                        <span className="inline-flex items-center px-3 py-1 rounded-sm text-xs font-bold bg-galtech-accent text-white shadow">
+                          {project.categoryLabel}
+                        </span>
+                      </div>
                     </div>
-                  </div>
-                </div>
-              </article>
-            ))}
-          </div>
+
+                    <div className="p-6">
+                      <div className="flex items-center gap-3 mb-3">
+                        <span className="text-xs font-medium text-gray-500">{project.year}</span>
+                        <span className="text-gray-300">|</span>
+                        <span className="text-xs text-gray-500 flex items-center">
+                          <MapPin className="w-3 h-3 mr-1" />
+                          {project.location}
+                        </span>
+                      </div>
+
+                      <h3 className="text-xl font-bold text-slate-900 mb-2">
+                        {project.title}
+                      </h3>
+
+                      <p className="text-gray-600 text-sm leading-relaxed mb-4">
+                        {project.description}
+                      </p>
+
+                      <div className="flex items-center justify-between pt-4 border-t border-gray-100">
+                        <div>
+                          <span className="block text-xs text-gray-400">Superficie</span>
+                          <span className="font-semibold text-slate-800">{project.area}</span>
+                        </div>
+                      </div>
+                    </div>
+                  </article>
+                ))}
+              </div>
+            </>
+          )}
         </div>
       </section>
 
