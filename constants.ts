@@ -428,6 +428,64 @@ export const MAP_POINTS: ProjectLocation[] = [
   { id: 276, title: 'Gómez Bonadeo',                 location: 'Tandil, Buenos Aires',               type: 'Obra ejecutada', area: '—', year: '—', lat: -37.2808457,  lng: -59.1449977,  imageUrl: IMG },
 ];
 
+export const FEATURED_CAROUSEL_PROJECTS: ProjectLocation[] = [
+  {
+    id: 102,
+    title: 'Agropack',
+    location: 'Tandil, Buenos Aires',
+    type: 'Obra ejecutada',
+    area: '—',
+    year: '—',
+    lat: -37.2944719,
+    lng: -59.1902170,
+    imageUrl: '/Imagenes%20Proyectos/Agropack%20Agroquimico.JPG',
+  },
+  {
+    id: 190,
+    title: 'Agroquímico Cardinale',
+    location: 'Tandil, Buenos Aires',
+    type: 'Obra ejecutada',
+    area: '—',
+    year: '—',
+    lat: -37.2829464,
+    lng: -59.2086662,
+    imageUrl: '/Imagenes%20Proyectos/Agroquimico%20Cardinale.jpg',
+  },
+  {
+    id: 225,
+    title: 'Nave Industrial Deconews',
+    location: 'Tandil, Buenos Aires',
+    type: 'Obra ejecutada',
+    area: '—',
+    year: '—',
+    lat: -37.2905063,
+    lng: -59.1917673,
+    imageUrl: '/Imagenes%20Proyectos/Deposito%20y%20Nave%20industrial%20Deconews.jpg',
+  },
+  {
+    id: 9001,
+    title: 'Local Comercial Yamaha',
+    location: 'Tandil, Buenos Aires',
+    type: 'Obra ejecutada',
+    area: '—',
+    year: '—',
+    lat: -37.3068486,
+    lng: -59.1193360,
+    imageUrl: '/Imagenes%20Proyectos/Local%20comercial%20Yamaha.jpg',
+  },
+  {
+    id: 30,
+    title: 'Turcream',
+    location: 'General Guido, Buenos Aires',
+    type: 'Obra ejecutada',
+    area: '—',
+    year: '—',
+    lat: -37.1344901,
+    lng: -58.5291910,
+    imageUrl: '/Imagenes%20Proyectos/Turcream%20c%C3%A1mara%20de%20frio.JPG',
+  },
+];
+
 export const PROCESS_STEPS: ProcessStep[] = [
   {
     number: '01',

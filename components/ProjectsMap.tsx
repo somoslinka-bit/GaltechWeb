@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { MapContainer, TileLayer, Marker, Tooltip, useMap } from 'react-leaflet';
 import L from 'leaflet';
-import { PROJECTS, MAP_POINTS } from '../constants';
+import { PROJECTS, MAP_POINTS, FEATURED_CAROUSEL_PROJECTS } from '../constants';
 import { MapPin, X } from 'lucide-react';
 import {
   Stories,
@@ -103,20 +103,16 @@ const ProjectsMap = () => {
 
           <Stories>
             <StoriesContent>
-              {MAP_POINTS.slice(0, 14).map((point) => (
+              {FEATURED_CAROUSEL_PROJECTS.map((point) => (
                 <Story key={point.id} className="aspect-[3/4] w-[180px] md:w-[200px]">
                   <StoryImage
                     alt={point.title}
                     src={point.imageUrl}
-                    onError={(e) => {
-                      e.currentTarget.src =
-                        'https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=400&q=80';
-                    }}
                   />
                   <StoryOverlay side="top" />
                   <StoryOverlay side="bottom" />
                   <StoryTitle className="text-xs font-bold uppercase tracking-wide text-[#ff8727]">
-                    Obra ejecutada
+                    {point.title}
                   </StoryTitle>
                   <StoryAuthor>
                     <MapPin className="w-3 h-3 shrink-0 text-[#ff8727]" />
