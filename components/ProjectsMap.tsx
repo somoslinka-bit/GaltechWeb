@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { MapContainer, TileLayer, Marker, Popup, useMap } from 'react-leaflet';
+import { MapContainer, TileLayer, Marker, Tooltip, useMap } from 'react-leaflet';
 import L from 'leaflet';
 import { PROJECTS, MAP_POINTS } from '../constants';
 import { MapPin, X } from 'lucide-react';
@@ -31,10 +31,10 @@ L.Marker.prototype.options.icon = DefaultIcon;
 const customIcon = new L.Icon({
   iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-orange.png',
   shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/images/marker-shadow.png',
-  iconSize: [25, 41],
-  iconAnchor: [12, 41],
-  popupAnchor: [1, -34],
-  shadowSize: [41, 41]
+  iconSize: [14, 23],
+  iconAnchor: [7, 23],
+  popupAnchor: [1, -20],
+  shadowSize: [23, 23]
 });
 
 // Component to handle map invalidation on mount
@@ -73,9 +73,9 @@ function FixLeafletResize() {
 const ProjectsMap = () => {
   const [showOverlayCard, setShowOverlayCard] = useState(true);
 
-  // Centro en zona de Tandil / SE Bonaerense
-  const centerPosition: [number, number] = [-37.75, -59.25];
-  const zoomLevel = 9;
+  // Centro geográfico de Argentina
+  const centerPosition: [number, number] = [-38.5, -63.6];
+  const zoomLevel = 5;
 
   return (
     <section id="obras" className="relative bg-slate-900 border-t border-slate-800">
@@ -180,29 +180,13 @@ const ProjectsMap = () => {
               position={[point.lat, point.lng]}
               icon={customIcon}
             >
-              <Popup minWidth={280}>
-                <div style={{ width: 280, overflow: 'hidden', borderRadius: 8 }}>
-                  <div style={{ height: 130, overflow: 'hidden' }}>
-                    <img
-                      src={point.imageUrl}
-                      alt={point.title}
-                      style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
-                    />
-                  </div>
-                  <div style={{ padding: '10px 14px 14px', background: '#fff' }}>
-                    <span style={{ display: 'inline-block', background: '#ff8727', color: '#fff', fontSize: 10, fontWeight: 700, padding: '2px 7px', borderRadius: 3, letterSpacing: '0.5px', textTransform: 'uppercase', marginBottom: 6 }}>
-                      Obra ejecutada
-                    </span>
-                    <p style={{ fontWeight: 700, color: '#0f172a', fontSize: 13, lineHeight: 1.3, margin: '0 0 5px' }}>
-                      {point.title}
-                    </p>
-                    <p style={{ color: '#64748b', fontSize: 11, margin: 0, display: 'flex', alignItems: 'center', gap: 4 }}>
-                      <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#ff8727" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-                      {point.location}
-                    </p>
-                  </div>
-                </div>
-              </Popup>
+              <Tooltip direction="top" offset={[0, -20]} opacity={0.95}>
+                <span style={{ fontSize: 12, fontWeight: 600, color: '#0f172a' }}>
+                  {point.title}
+                </span>
+                <br />
+                <span style={{ fontSize: 11, color: '#64748b' }}>{point.location}</span>
+              </Tooltip>
             </Marker>
           ))}
         </MapContainer>
