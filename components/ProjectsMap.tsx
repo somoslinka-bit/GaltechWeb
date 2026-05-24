@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { MapContainer, TileLayer, Marker, Tooltip, useMap } from 'react-leaflet';
 import L from 'leaflet';
 import { MAP_POINTS, CATEGORIES } from '../constants';
+import { ImageAccordion } from './ui/image-accordion';
 
 // Fix for default Leaflet marker icons in React
 const iconUrl = 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png';
@@ -76,7 +77,7 @@ const ProjectsMap = () => {
           </p>
         </div>
       </div>
-            {/* Rubros (grilla de categorías) */}
+            {/* Rubros (acordeón horizontal de imágenes) */}
       <div className="relative z-10 py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4">
           <div className="mb-10">
@@ -87,45 +88,11 @@ const ProjectsMap = () => {
               Proyectos por rubro
             </h2>
             <p className="mt-3 text-gray-500 max-w-2xl">
-              Hacé click en un rubro para ver la galería de obras ejecutadas por Galtech.
+              Pasá el cursor sobre un rubro para ver la galería de obras ejecutadas.
             </p>
           </div>
 
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-            {CATEGORIES.map((cat) => (
-              <a
-                key={cat.key}
-                href={`#/proyectos/${cat.key}`}
-                className="group block text-left bg-white border border-gray-200 rounded-sm overflow-hidden shadow-sm hover:shadow-lg hover:-translate-y-1 transition-all"
-              >
-                <div className="h-44 overflow-hidden relative bg-slate-800">
-                  <img
-                    src={cat.images[0]}
-                    alt={cat.label}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                    loading="lazy"
-                    referrerPolicy="no-referrer"
-                    onError={(e) => {
-                      e.currentTarget.src =
-                        'https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=800&q=80';
-                    }}
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-                </div>
-                <div className="p-4">
-                  <h3 className="font-bold text-slate-900 text-base group-hover:text-galtech-accent transition-colors">
-                    {cat.label}
-                  </h3>
-                  <span className="inline-flex items-center mt-2 text-sm font-semibold text-galtech-accent">
-                    Ver galería
-                    <svg className="ml-1.5 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                    </svg>
-                  </span>
-                </div>
-              </a>
-            ))}
-          </div>
+          <ImageAccordion categories={CATEGORIES} />
         </div>
       </div>
 
