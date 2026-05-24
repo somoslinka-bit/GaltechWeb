@@ -5,22 +5,44 @@ import { LOGO_BASE64, CATEGORIES } from '../constants';
 function GalleryCarousel({ images }: { images: string[] }) {
   const [current, setCurrent] = useState(0);
   const [loaded, setLoaded] = useState<boolean[]>(images.map(() => false));
+  // Imágenes que ya fueron renderizadas al menos una vez (no volver a desmontar)
+  const [renderedSet, setRenderedSet] = useState<Set<number>>(new Set([0]));
   const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
+
+  const addToRendered = (index: number) => {
+    const next = (index + 1) % images.length;
+    setRenderedSet((prev) => {
+      if (prev.has(index) && prev.has(next)) return prev;
+      const s = new Set(prev);
+      s.add(index);
+      s.add(next);
+      return s;
+    });
+  };
 
   const startAutoplay = () => {
     timerRef.current = setInterval(() => {
-      setCurrent((prev) => (prev + 1) % images.length);
+      setCurrent((prev) => {
+        const next = (prev + 1) % images.length;
+        addToRendered(next);
+        return next;
+      });
     }, 3500);
   };
 
   useEffect(() => {
+    addToRendered(0);
     startAutoplay();
     return () => { if (timerRef.current) clearInterval(timerRef.current); };
   }, [images.length]);
 
   const go = (dir: 1 | -1) => {
     if (timerRef.current) clearInterval(timerRef.current);
-    setCurrent((prev) => (prev + dir + images.length) % images.length);
+    setCurrent((prev) => {
+      const next = (prev + dir + images.length) % images.length;
+      addToRendered(next);
+      return next;
+    });
     startAutoplay();
   };
 
@@ -39,24 +61,25 @@ function GalleryCarousel({ images }: { images: string[] }) {
           key={i}
           className={`absolute inset-0 transition-opacity duration-700 ${i === current ? 'opacity-100 z-10' : 'opacity-0 z-0'}`}
         >
-          {!loaded[i] && (
+          {renderedSet.has(i) && !loaded[i] && (
             <div className="absolute inset-0 flex items-center justify-center bg-slate-800">
               <div className="w-8 h-8 border-2 border-white/20 border-t-white rounded-full animate-spin" />
             </div>
           )}
-          <img
-            src={src}
-            alt=""
-            className="w-full h-full object-cover"
-            loading={i === 0 ? 'eager' : 'lazy'}
-            referrerPolicy="no-referrer"
-            onLoad={() => markLoaded(i)}
-            onError={(e) => {
-              e.currentTarget.src =
-                'https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=800&q=80';
-              markLoaded(i);
-            }}
-          />
+          {renderedSet.has(i) && (
+            <img
+              src={src}
+              alt=""
+              className="w-full h-full object-cover"
+              referrerPolicy="no-referrer"
+              onLoad={() => markLoaded(i)}
+              onError={(e) => {
+                e.currentTarget.src =
+                  'https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=800&q=80';
+                markLoaded(i);
+              }}
+            />
+          )}
         </div>
       ))}
 
