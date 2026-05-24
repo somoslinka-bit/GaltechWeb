@@ -99,6 +99,10 @@ const ProjectsPage = ({ initialCategory = null }: { initialCategory?: string | n
   const selectedCat = CATEGORIES.find((c) => c.key === activeCategory) ?? null;
 
   useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'instant' as ScrollBehavior });
+  }, []);
+
+  useEffect(() => {
     const isValid = initialCategory && CATEGORIES.some((c) => c.key === initialCategory);
     setActiveCategory(isValid ? initialCategory : null);
   }, [initialCategory]);
