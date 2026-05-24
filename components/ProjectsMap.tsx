@@ -61,22 +61,11 @@ function FixLeafletResize() {
 
 
 const ProjectsMap = () => {
-  // Centro geográfico de Argentina
-  const centerPosition: [number, number] = [-38.5, -63.6];
-  const zoomLevel = 5;
+  const centerPosition: [number, number] = [-36.5, -60.5];
+  const zoomLevel = 6;
 
   return (
-    <section id="obras" className="relative bg-slate-900 border-t border-slate-800">
-      <div className="absolute top-0 left-0 w-full z-10 pointer-events-none p-8 md:p-12 bg-gradient-to-b from-slate-900/90 to-transparent h-48">
-        <div className="max-w-7xl mx-auto px-4">
-          <h2 className="text-3xl font-bold text-white text-center md:text-left drop-shadow-md">
-            Presencia territorial
-          </h2>
-          <p className="text-gray-300 text-sm md:text-base text-center md:text-left drop-shadow-sm max-w-xl mt-1">
-            Ejecutamos obras industriales en distintas localidades, acompañando el crecimiento productivo de nuestros clientes.
-          </p>
-        </div>
-      </div>
+    <section id="obras" className="bg-slate-900 border-t border-slate-800">
             {/* Rubros (acordeón horizontal de imágenes) */}
       <div className="relative z-10 py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4">
@@ -93,6 +82,20 @@ const ProjectsMap = () => {
           </div>
 
           <ImageAccordion categories={CATEGORIES} />
+        </div>
+      </div>
+
+      <div className="py-10 px-4">
+        <div className="max-w-7xl mx-auto">
+          <span className="inline-block text-[#ff8727] font-bold uppercase tracking-widest text-sm mb-3">
+            Cobertura
+          </span>
+          <h2 className="text-3xl font-bold text-white">
+            Presencia nacional
+          </h2>
+          <p className="mt-2 text-slate-400 max-w-xl text-sm md:text-base">
+            Ejecutamos obras industriales en distintas localidades del país, acompañando el crecimiento productivo de nuestros clientes.
+          </p>
         </div>
       </div>
 
