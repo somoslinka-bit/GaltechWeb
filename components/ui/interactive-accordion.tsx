@@ -1,10 +1,11 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import type { ReactNode } from 'react';
 
 export interface AccordionItem {
   id: string;
   number: string;
-  icon: string;
+  icon: ReactNode;
   title: string;
   content: string;
 }

@@ -1,11 +1,12 @@
 import React from 'react';
+import { Blueprint, ChartLineUp, Factory, Crane, HardHat } from '@phosphor-icons/react';
 import { InteractiveAccordion, AccordionItem } from './ui/interactive-accordion';
 
 const SERVICES_DATA: AccordionItem[] = [
   {
     id: 'ingenieria-estructural',
     number: '01',
-    icon: '📐',
+    icon: <Blueprint size={20} weight="regular" />,
     title: 'Ingeniería y Cálculo Estructural (Oficina Técnica)',
     content:
       'Nuestro equipo de ingenieros especializados calcula, diseña y verifica cada estructura bajo estrictas normas de seguridad. Coordinamos directamente la ingeniería con la fabricación para garantizar que la precisión del cálculo teórico se traslade de forma idéntica al taller y a la obra.',
@@ -13,7 +14,7 @@ const SERVICES_DATA: AccordionItem[] = [
   {
     id: 'ingenieria-financiera',
     number: '02',
-    icon: '📊',
+    icon: <ChartLineUp size={20} weight="regular" />,
     title: 'Ingeniería Financiera y Fiscal',
     content:
       'Facilitamos la estructuración del negocio y las soluciones financieras para su obra. Buscamos las mejores líneas de crédito del mercado (o desarrollamos esquemas propios) y brindamos asesoramiento contable en beneficios impositivos para garantizar la máxima eficiencia de su inversión.',
@@ -21,7 +22,7 @@ const SERVICES_DATA: AccordionItem[] = [
   {
     id: 'fabricacion',
     number: '03',
-    icon: '🏭',
+    icon: <Factory size={20} weight="regular" />,
     title: 'Fabricación Industrializada y Acopio',
     content:
       'Contamos con una infraestructura industrial modelo: una moderna planta de fabricación y acopio de estructuras dentro de un predio de 20.000 m². Esto nos permite optimizar los tiempos de producción, procesar grandes volúmenes y asegurar el correcto manejo de materiales certificados.',
@@ -29,7 +30,7 @@ const SERVICES_DATA: AccordionItem[] = [
   {
     id: 'logistica',
     number: '04',
-    icon: '🏗️',
+    icon: <Crane size={20} weight="regular" />,
     title: 'Logística, Traslado e Izaje (Grúas Propias)',
     content:
       'Disponemos de flota y equipamiento pesado propio para el traslado y movimiento de estructuras de alta complejidad. Al no depender de terceros, aseguramos una coordinación perfecta en el terreno y el cumplimiento estricto de los plazos de entrega.',
@@ -37,7 +38,7 @@ const SERVICES_DATA: AccordionItem[] = [
   {
     id: 'seguridad',
     number: '05',
-    icon: '🛡️',
+    icon: <HardHat size={20} weight="regular" />,
     title: 'Gestión de Seguridad e Higiene',
     content:
       'La seguridad no es un factor secundario. Una oficina de Seguridad e Higiene dedicada supervisa activamente todo el proceso, mitigando riesgos tanto en la etapa de fabricación dentro de nuestra planta como durante el montaje final en la obra.',
@@ -48,7 +49,6 @@ const Services = () => {
   return (
     <section id="servicios" className="bg-white py-24">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Encabezado */}
         <div className="mb-12">
           <span className="inline-block text-[#ff8727] font-bold uppercase tracking-widest text-sm mb-3">
             Servicios
@@ -62,7 +62,6 @@ const Services = () => {
           </p>
         </div>
 
-        {/* Acordeón animado */}
         <InteractiveAccordion items={SERVICES_DATA} defaultActiveId="ingenieria-estructural" />
       </div>
     </section>
