@@ -4,11 +4,12 @@ import Hero from './components/Hero';
 import About from "./components/About";
 import Clients from './components/Clients';
 import Services from './components/Services';
-import WhyUs from './components/WhyUs';
 import ProjectsMap from './components/ProjectsMap';
+import ComingSoon from './components/ComingSoon';
 import Process from './components/Process';
 import FAQ from './components/FAQ';
 import ContactCTA from './components/ContactCTA';
+import JobApplication from './components/JobApplication';
 import Footer from './components/Footer';
 import ProjectsPage from './components/ProjectsPage';
 
@@ -44,12 +45,13 @@ function App() {
         <Hero />
         <About />
         <Services />
-        <WhyUs />
         <Clients />
         <ProjectsMap />
+        <ComingSoon />
         <Process />
         <FAQ />
         <ContactCTA />
+        <JobApplication />
       </main>
       <Footer />
     </div>

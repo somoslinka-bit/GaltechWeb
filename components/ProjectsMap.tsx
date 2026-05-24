@@ -177,10 +177,6 @@ const ProjectsMap = () => {
               icon={customIcon}
             >
               <Tooltip direction="top" offset={[0, -20]} opacity={0.95}>
-                <span style={{ fontSize: 12, fontWeight: 600, color: '#0f172a' }}>
-                  {point.title}
-                </span>
-                <br />
                 <span style={{ fontSize: 11, color: '#64748b' }}>{point.location}</span>
               </Tooltip>
             </Marker>
