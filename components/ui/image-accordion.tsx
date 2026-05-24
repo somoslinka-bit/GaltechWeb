@@ -5,19 +5,28 @@ interface AccordionItemProps {
   item: CategoryDef;
   isActive: boolean;
   onMouseEnter: () => void;
-  onClick: () => void;
+  onActivate: () => void;
+  onNavigate: () => void;
 }
 
-const AccordionItem = ({ item, isActive, onMouseEnter, onClick }: AccordionItemProps) => {
+const AccordionItem = ({ item, isActive, onMouseEnter, onActivate, onNavigate }: AccordionItemProps) => {
+  const handleClick = () => {
+    if (isActive) {
+      onNavigate();
+    } else {
+      onActivate();
+    }
+  };
+
   return (
     <div
       className={`
-        relative overflow-hidden cursor-pointer rounded-sm min-w-0
+        relative overflow-hidden cursor-pointer rounded-sm min-w-0 min-h-0
         transition-all duration-700 ease-in-out
-        ${isActive ? 'flex-[6]' : 'flex-[1]'}
+        ${isActive ? 'flex-[5] md:flex-[6]' : 'flex-[1]'}
       `}
       onMouseEnter={onMouseEnter}
-      onClick={onClick}
+      onClick={handleClick}
     >
       <img
         src={item.images[0]}
@@ -38,18 +47,21 @@ const AccordionItem = ({ item, isActive, onMouseEnter, onClick }: AccordionItemP
       />
 
       {isActive && (
-        <span className="absolute top-3 left-3 inline-flex items-center px-2.5 py-1 text-xs font-bold bg-[#ff8727] text-white">
+        <span
+          className="absolute top-3 left-3 inline-flex items-center px-2.5 py-1 text-xs font-bold bg-[#ff8727] text-white z-10"
+          onClick={(e) => { e.stopPropagation(); onNavigate(); }}
+        >
           Ver galería →
         </span>
       )}
 
       <span
         className={`
-          absolute text-white font-bold whitespace-nowrap
-          transition-all duration-500 ease-in-out pointer-events-none
+          absolute text-white font-bold pointer-events-none
+          transition-all duration-500 ease-in-out
           ${isActive
-            ? 'bottom-5 left-4 text-base rotate-0 opacity-100'
-            : 'top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rotate-90 text-xs opacity-90'
+            ? 'bottom-4 left-4 text-sm md:text-base rotate-0 opacity-100 whitespace-normal max-w-[calc(100%-2rem)]'
+            : 'top-1/2 left-4 md:left-1/2 -translate-y-1/2 md:-translate-x-1/2 md:rotate-90 whitespace-nowrap text-xs opacity-90'
           }
         `}
       >
@@ -67,14 +79,15 @@ export function ImageAccordion({ categories }: ImageAccordionProps) {
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
-    <div className="flex flex-row gap-2 w-full h-[420px]">
+    <div className="flex flex-col md:flex-row gap-2 w-full h-[560px] md:h-[420px]">
       {categories.map((cat, index) => (
         <AccordionItem
           key={cat.key}
           item={cat}
           isActive={index === activeIndex}
           onMouseEnter={() => setActiveIndex(index)}
-          onClick={() => {
+          onActivate={() => setActiveIndex(index)}
+          onNavigate={() => {
             window.location.hash = `/proyectos/${cat.key}`;
           }}
         />
