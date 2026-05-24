@@ -15,17 +15,22 @@ import ProjectsPage from './components/ProjectsPage';
 
 function App() {
   const [currentPage, setCurrentPage] = useState<'home' | 'proyectos'>('home');
+  const [initialCategory, setInitialCategory] = useState<string | null>(null);
 
   useEffect(() => {
     const handleHashChange = () => {
       const hash = window.location.hash;
-      if (hash === '#/proyectos') {
+      if (hash.startsWith('#/proyectos')) {
+        const parts = hash.split('/');
+        const cat = parts[2] ?? null;
+        setInitialCategory(cat || null);
         setCurrentPage('proyectos');
         requestAnimationFrame(() => {
           window.scrollTo({ top: 0, behavior: 'instant' as ScrollBehavior });
         });
       } else {
         setCurrentPage('home');
+        setInitialCategory(null);
       }
     };
 
@@ -35,7 +40,7 @@ function App() {
   }, []);
 
   if (currentPage === 'proyectos') {
-    return <ProjectsPage />;
+    return <ProjectsPage initialCategory={initialCategory} />;
   }
 
   return (

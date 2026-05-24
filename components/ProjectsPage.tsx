@@ -1,96 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { ArrowLeft, ChevronLeft, ChevronRight } from 'lucide-react';
-import { LOGO_BASE64 } from '../constants';
-
-type CategoryKey =
-  | 'agroquimicos'
-  | 'depositos'
-  | 'naves-agro'
-  | 'locales'
-  | 'oficinas'
-  | 'deportivos';
-
-interface CategoryDef {
-  key: CategoryKey;
-  label: string;
-  description: string;
-  images: string[];
-}
-
-const CATEGORIES: CategoryDef[] = [
-  {
-    key: 'agroquimicos',
-    label: 'Agroquímicos y semillas certificados',
-    description:
-      'Instalaciones especializadas para el almacenamiento, distribución y manejo de insumos agrícolas certificados.',
-    images: [
-      '/Imagenes%20Proyectos/Agropack%20Agroquimico.JPG',
-      '/Imagenes%20Proyectos/Agroquimico%20Cardinale.jpg',
-      'https://images.unsplash.com/photo-1625246333195-78d9c38ad449?auto=format&fit=crop&q=80&w=800',
-      'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=800',
-    ],
-  },
-  {
-    key: 'depositos',
-    label: 'Depósitos, naves industriales y logística',
-    description:
-      'Estructuras de gran escala para operaciones logísticas, almacenamiento industrial y distribución.',
-    images: [
-      '/Imagenes%20Proyectos/Deposito%20y%20Nave%20industrial%20Deconews.jpg',
-      'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=800',
-      'https://images.unsplash.com/photo-1553413077-190dd305871c?auto=format&fit=crop&q=80&w=800',
-      'https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&q=80&w=800',
-    ],
-  },
-  {
-    key: 'naves-agro',
-    label: 'Naves para agro y ganadería',
-    description:
-      'Tambos, galpones de maquinaria y estructuras rurales adaptadas a las necesidades del campo.',
-    images: [
-      'https://images.unsplash.com/photo-1531834685032-c34bf0d84c7c?auto=format&fit=crop&q=80&w=800',
-      'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&q=80&w=800',
-      'https://images.unsplash.com/photo-1625246333195-78d9c38ad449?auto=format&fit=crop&q=80&w=800',
-      'https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&q=80&w=800',
-    ],
-  },
-  {
-    key: 'locales',
-    label: 'Locales comerciales',
-    description:
-      'Espacios comerciales funcionales y de identidad propia. Combinamos estructura y estética para proyectos que representan a cada marca.',
-    images: [
-      '/Imagenes%20Proyectos/Local%20comercial%20Yamaha.jpg',
-      '/Imagenes%20Proyectos/Turcream%20c%C3%A1mara%20de%20frio.JPG',
-      'https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&q=80&w=800',
-      'https://images.unsplash.com/photo-1555636222-cae831e670b3?auto=format&fit=crop&q=80&w=800',
-    ],
-  },
-  {
-    key: 'oficinas',
-    label: 'Oficinas',
-    description:
-      'Soluciones de construcción industrial para espacios de trabajo, sedes corporativas y entornos productivos.',
-    images: [
-      'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&q=80&w=800',
-      'https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?auto=format&fit=crop&q=80&w=800',
-      'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=800',
-      'https://images.unsplash.com/photo-1553413077-190dd305871c?auto=format&fit=crop&q=80&w=800',
-    ],
-  },
-  {
-    key: 'deportivos',
-    label: 'Complejos deportivos',
-    description:
-      'Canchas cubiertas, polideportivos y clubes con estructuras metálicas de grandes luces y alta durabilidad.',
-    images: [
-      'https://images.unsplash.com/photo-1531834685032-c34bf0d84c7c?auto=format&fit=crop&q=80&w=800',
-      'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=800',
-      'https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?auto=format&fit=crop&q=80&w=800',
-      'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=800',
-    ],
-  },
-];
+import { LOGO_BASE64, CATEGORIES } from '../constants';
 
 function GalleryCarousel({ images }: { images: string[] }) {
   const [current, setCurrent] = useState(0);
@@ -184,9 +94,14 @@ function GalleryCarousel({ images }: { images: string[] }) {
   );
 }
 
-const ProjectsPage = () => {
-  const [activeCategory, setActiveCategory] = useState<CategoryKey | null>(null);
+const ProjectsPage = ({ initialCategory = null }: { initialCategory?: string | null }) => {
+  const [activeCategory, setActiveCategory] = useState<string | null>(null);
   const selectedCat = CATEGORIES.find((c) => c.key === activeCategory) ?? null;
+
+  useEffect(() => {
+    const isValid = initialCategory && CATEGORIES.some((c) => c.key === initialCategory);
+    setActiveCategory(isValid ? initialCategory : null);
+  }, [initialCategory]);
 
   return (
     <div className="min-h-screen bg-white font-sans">
