@@ -4,13 +4,12 @@ import { CategoryDef } from '../../constants';
 interface AccordionItemProps {
   item: CategoryDef;
   isActive: boolean;
-  shouldLoad: boolean;
   onMouseEnter: () => void;
   onActivate: () => void;
   onNavigate: () => void;
 }
 
-const AccordionItem = ({ item, isActive, shouldLoad, onMouseEnter, onActivate, onNavigate }: AccordionItemProps) => {
+const AccordionItem = ({ item, isActive, onMouseEnter, onActivate, onNavigate }: AccordionItemProps) => {
   const handleClick = () => {
     if (isActive) {
       onNavigate();
@@ -29,19 +28,19 @@ const AccordionItem = ({ item, isActive, shouldLoad, onMouseEnter, onActivate, o
       onMouseEnter={onMouseEnter}
       onClick={handleClick}
     >
-      {/* Solo se renderiza el img cuando el panel fue activado al menos una vez */}
-      {shouldLoad && (
-        <img
-          src={item.images[0]}
-          alt={item.label}
-          className="absolute inset-0 w-full h-full object-cover"
-          referrerPolicy="no-referrer"
-          onError={(e) => {
-            e.currentTarget.src =
-              'https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=800&q=80';
-          }}
-        />
-      )}
+      <img
+        src={item.images[0]}
+        alt={item.label}
+        className="absolute inset-0 w-full h-full object-cover"
+        // Imagen activa: máxima prioridad. Inactivas: baja prioridad para no saturar el ancho de banda
+        fetchPriority={isActive ? 'high' : 'low'}
+        loading={isActive ? 'eager' : 'lazy'}
+        referrerPolicy="no-referrer"
+        onError={(e) => {
+          e.currentTarget.src =
+            'https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=800&q=80';
+        }}
+      />
 
       <div
         className={`absolute inset-0 bg-black transition-opacity duration-700 ${
@@ -80,18 +79,6 @@ interface ImageAccordionProps {
 
 export function ImageAccordion({ categories }: ImageAccordionProps) {
   const [activeIndex, setActiveIndex] = useState(0);
-  // Arranca con solo el primer panel cargado
-  const [loadedSet, setLoadedSet] = useState<Set<number>>(new Set([0]));
-
-  const handleActivate = (index: number) => {
-    setActiveIndex(index);
-    setLoadedSet((prev) => {
-      if (prev.has(index)) return prev;
-      const next = new Set(prev);
-      next.add(index);
-      return next;
-    });
-  };
 
   return (
     <div className="flex flex-col md:flex-row gap-2 w-full h-[560px] md:h-[420px]">
@@ -100,9 +87,8 @@ export function ImageAccordion({ categories }: ImageAccordionProps) {
           key={cat.key}
           item={cat}
           isActive={index === activeIndex}
-          shouldLoad={loadedSet.has(index)}
-          onMouseEnter={() => handleActivate(index)}
-          onActivate={() => handleActivate(index)}
+          onMouseEnter={() => setActiveIndex(index)}
+          onActivate={() => setActiveIndex(index)}
           onNavigate={() => {
             window.location.hash = `/proyectos/${cat.key}`;
           }}
