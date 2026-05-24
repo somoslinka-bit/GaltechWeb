@@ -12,9 +12,9 @@ const AccordionItem = ({ item, isActive, onMouseEnter, onClick }: AccordionItemP
   return (
     <div
       className={`
-        relative h-[400px] rounded-sm overflow-hidden cursor-pointer flex-shrink-0
+        relative overflow-hidden cursor-pointer rounded-sm min-w-0
         transition-all duration-700 ease-in-out
-        ${isActive ? 'w-[380px]' : 'w-[58px]'}
+        ${isActive ? 'flex-[6]' : 'flex-[1]'}
       `}
       onMouseEnter={onMouseEnter}
       onClick={onClick}
@@ -31,7 +31,11 @@ const AccordionItem = ({ item, isActive, onMouseEnter, onClick }: AccordionItemP
         }}
       />
 
-      <div className={`absolute inset-0 transition-colors duration-700 ${isActive ? 'bg-black/40' : 'bg-black/55'}`} />
+      <div
+        className={`absolute inset-0 transition-colors duration-700 ${
+          isActive ? 'bg-black/40' : 'bg-black/60'
+        }`}
+      />
 
       {isActive && (
         <span className="absolute top-3 left-3 inline-flex items-center px-2.5 py-1 text-xs font-bold bg-[#ff8727] text-white">
@@ -42,10 +46,10 @@ const AccordionItem = ({ item, isActive, onMouseEnter, onClick }: AccordionItemP
       <span
         className={`
           absolute text-white font-bold whitespace-nowrap
-          transition-all duration-500 ease-in-out
+          transition-all duration-500 ease-in-out pointer-events-none
           ${isActive
             ? 'bottom-5 left-4 text-base rotate-0 opacity-100'
-            : 'bottom-20 left-1/2 -translate-x-1/2 rotate-90 text-sm opacity-80'
+            : 'top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rotate-90 text-xs opacity-90'
           }
         `}
       >
@@ -63,7 +67,7 @@ export function ImageAccordion({ categories }: ImageAccordionProps) {
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
-    <div className="flex flex-row items-center gap-2 overflow-x-auto pb-2">
+    <div className="flex flex-row gap-2 w-full h-[420px]">
       {categories.map((cat, index) => (
         <AccordionItem
           key={cat.key}
