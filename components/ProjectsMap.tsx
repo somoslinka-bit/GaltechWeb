@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { MapContainer, TileLayer, Marker, Tooltip, useMap } from 'react-leaflet';
 import L from 'leaflet';
 import { MAP_POINTS, CATEGORIES } from '../constants';
-import { ImageAccordion } from './ui/image-accordion';
+import { Gallery4 } from './ui/gallery4';
 
 // Fix for default Leaflet marker icons in React
 const iconUrl = 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png';
@@ -66,22 +66,20 @@ const ProjectsMap = () => {
 
   return (
     <section id="obras" className="bg-slate-900 border-t border-slate-800">
-            {/* Rubros (acordeón horizontal de imágenes) */}
-      <div className="relative z-10 py-16 bg-white">
+      {/* Rubros (carrusel Gallery4) */}
+      <div className="relative z-10 py-16 bg-white overflow-hidden">
         <div className="max-w-7xl mx-auto px-4">
-          <div className="mb-10">
-            <span className="inline-block text-[#ff8727] font-bold uppercase tracking-widest text-sm mb-3">
-              Nuestros proyectos
-            </span>
-            <h2 className="text-3xl font-bold text-slate-900">
-              Proyectos por rubro
-            </h2>
-            <p className="mt-3 text-gray-500 max-w-2xl">
-              Pasá el cursor sobre un rubro para ver la galería de obras ejecutadas.
-            </p>
-          </div>
-
-          <ImageAccordion categories={CATEGORIES} />
+          <Gallery4
+            title="Proyectos por rubro"
+            description="Seleccioná un rubro para ver la galería de obras ejecutadas por Galtech."
+            items={CATEGORIES.map((cat) => ({
+              id: cat.key,
+              title: cat.label,
+              description: cat.description,
+              href: `#/proyectos/${cat.key}`,
+              image: cat.images[0],
+            }))}
+          />
         </div>
       </div>
 
