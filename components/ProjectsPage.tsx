@@ -136,7 +136,7 @@ const ProjectsPage = ({ initialCategory = null }: { initialCategory?: string | n
       <header className="fixed top-0 left-0 w-full z-50 bg-white shadow-md py-3">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center">
           <a href="#/" className="flex-shrink-0">
-            <img src={LOGO_BASE64} alt="GALTECH" className="h-10 sm:h-12 w-auto" />
+            <img src={LOGO_BASE64} alt="GALTECH" className="h-12 sm:h-16 w-auto" />
           </a>
           {activeCategory ? (
             <button

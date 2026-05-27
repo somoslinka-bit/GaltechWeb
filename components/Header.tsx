@@ -34,7 +34,7 @@ const Header = () => {
           <img 
             src={LOGO_BASE64} 
             alt="GALTECH" 
-            className= "h-10 sm:h-12 w-auto transition-all"
+            className="h-12 sm:h-16 w-auto transition-all"
         
           />
         </a>
