@@ -41,10 +41,6 @@ const AboutCarousel = () => {
                 'https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=800&q=80';
             }}
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
-          <div className="absolute bottom-4 left-4 right-4 z-10">
-            <p className="text-white text-sm font-semibold drop-shadow">{img.caption}</p>
-          </div>
         </div>
       ))}
 
