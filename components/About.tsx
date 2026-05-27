@@ -1,48 +1,79 @@
-import React from 'react';
-import { ABOUT_MEDIA } from '../constants';
+import React, { useState, useEffect, useRef } from 'react';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { ABOUT_IMAGES } from '../constants';
 
-const fadeStyles = `
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(16px); }
-    to   { opacity: 1; transform: translateY(0); }
-  }
-  .fadeUp-1 { animation: fadeUp 650ms ease-out both; }
-  .fadeUp-2 { animation: fadeUp 650ms ease-out both; animation-delay: 120ms; }
-`;
+const AboutCarousel = () => {
+  const [current, setCurrent] = useState(0);
+  const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const total = ABOUT_IMAGES.length;
 
-const MediaItem = ({ item }: { item: typeof ABOUT_MEDIA[number] }) => {
-  if (item.type === 'video') {
-    return (
-      <div className="relative overflow-hidden rounded-2xl shadow-sm border border-gray-200 bg-black">
-        <video
-          src={item.src}
-          className="w-full object-cover h-[240px] md:h-[260px]"
-          controls
-          playsInline
-          preload="metadata"
-        />
-        <div className="absolute bottom-0 left-0 right-0 px-4 py-2 bg-gradient-to-t from-black/60 to-transparent pointer-events-none">
-          <p className="text-white text-sm font-semibold">{item.caption}</p>
-        </div>
-      </div>
-    );
-  }
+  const go = (dir: 1 | -1) => {
+    if (timerRef.current) clearInterval(timerRef.current);
+    setCurrent((prev) => (prev + dir + total) % total);
+    startAutoplay();
+  };
+
+  const startAutoplay = () => {
+    timerRef.current = setInterval(() => {
+      setCurrent((prev) => (prev + 1) % total);
+    }, 3500);
+  };
+
+  useEffect(() => {
+    startAutoplay();
+    return () => { if (timerRef.current) clearInterval(timerRef.current); };
+  }, []);
 
   return (
-    <div className="relative overflow-hidden rounded-2xl shadow-sm border border-gray-200 bg-white">
-      <img
-        src={item.src}
-        alt={item.caption}
-        className="w-full object-cover h-[240px] md:h-[260px]"
-        loading="lazy"
-        onError={(e) => {
-          e.currentTarget.src =
-            'https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=800&q=80';
-        }}
-      />
-      <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/10 to-transparent pointer-events-none" />
-      <div className="absolute bottom-4 left-4 right-4">
-        <p className="text-white text-sm font-semibold">{item.caption}</p>
+    <div className="relative w-full overflow-hidden rounded-2xl shadow-sm bg-slate-100" style={{ aspectRatio: '4/3' }}>
+      {ABOUT_IMAGES.map((img, i) => (
+        <div
+          key={i}
+          className={`absolute inset-0 transition-opacity duration-700 ${i === current ? 'opacity-100 z-10' : 'opacity-0 z-0'}`}
+        >
+          <img
+            src={img.src}
+            alt={img.caption}
+            className="w-full h-full object-cover"
+            loading={i === 0 ? 'eager' : 'lazy'}
+            onError={(e) => {
+              e.currentTarget.src =
+                'https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=800&q=80';
+            }}
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+          <div className="absolute bottom-4 left-4 right-4 z-10">
+            <p className="text-white text-sm font-semibold drop-shadow">{img.caption}</p>
+          </div>
+        </div>
+      ))}
+
+      {/* Flechas */}
+      <button
+        onClick={() => go(-1)}
+        className="absolute left-3 top-1/2 -translate-y-1/2 z-20 w-9 h-9 flex items-center justify-center rounded-full bg-black/40 text-white hover:bg-black/60 transition-colors"
+        aria-label="Anterior"
+      >
+        <ChevronLeft className="w-5 h-5" />
+      </button>
+      <button
+        onClick={() => go(1)}
+        className="absolute right-3 top-1/2 -translate-y-1/2 z-20 w-9 h-9 flex items-center justify-center rounded-full bg-black/40 text-white hover:bg-black/60 transition-colors"
+        aria-label="Siguiente"
+      >
+        <ChevronRight className="w-5 h-5" />
+      </button>
+
+      {/* Dots */}
+      <div className="absolute bottom-3 right-4 z-20 flex gap-1.5">
+        {ABOUT_IMAGES.map((_, i) => (
+          <button
+            key={i}
+            onClick={() => { if (timerRef.current) clearInterval(timerRef.current); setCurrent(i); startAutoplay(); }}
+            className={`w-2 h-2 rounded-full transition-all ${i === current ? 'bg-white scale-125' : 'bg-white/50'}`}
+            aria-label={`Ir a imagen ${i + 1}`}
+          />
+        ))}
       </div>
     </div>
   );
@@ -51,13 +82,11 @@ const MediaItem = ({ item }: { item: typeof ABOUT_MEDIA[number] }) => {
 export default function About() {
   return (
     <section id="nosotros" className="py-20 bg-gray-50 overflow-hidden">
-      <style dangerouslySetInnerHTML={{ __html: fadeStyles }} />
-
       <div className="max-w-6xl mx-auto px-6">
-        <div className="grid gap-10 md:grid-cols-2 items-start">
+        <div className="grid gap-10 md:grid-cols-2 items-center">
 
-          {/* Texto — sin cambios */}
-          <div className="fadeUp-1">
+          {/* Texto */}
+          <div>
             <p className="text-sm font-semibold tracking-widest uppercase text-gray-500">
               NOSOTROS
             </p>
@@ -76,21 +105,8 @@ export default function About() {
             </p>
           </div>
 
-          {/* Grid de medios (imágenes + videos) */}
-          <div className="fadeUp-2 grid grid-cols-2 gap-4">
-            {ABOUT_MEDIA.map((item, i) => (
-              <div
-                key={i}
-                className={
-                  ABOUT_MEDIA.length % 2 !== 0 && i === ABOUT_MEDIA.length - 1
-                    ? 'col-span-2'
-                    : ''
-                }
-              >
-                <MediaItem item={item} />
-              </div>
-            ))}
-          </div>
+          {/* Carrusel */}
+          <AboutCarousel />
 
         </div>
 
