@@ -511,6 +511,21 @@ export const PROCESS_STEPS: ProcessStep[] = [
   },
 ];
 
+export type AboutMediaItem =
+  | { type: 'image'; src: string; caption: string }
+  | { type: 'video'; src: string; caption: string };
+
+// Orden de aparición en el grid de la sección Nosotros
+// Agregá o reordenás items acá para actualizar la sección
+export const ABOUT_MEDIA: AboutMediaItem[] = [
+  { type: 'image', src: '/nosotros/1.jpg', caption: 'Construcción industrial' },
+  { type: 'video', src: '/nosotros/1.mp4', caption: 'Proceso en obra' },
+  { type: 'image', src: '/nosotros/2.jpg', caption: 'Estructuras metálicas' },
+  { type: 'video', src: '/nosotros/2.mp4', caption: 'Montaje en obra' },
+  { type: 'image', src: '/nosotros/3.jpg', caption: 'Detalle de obra' },
+  { type: 'image', src: '/nosotros/4.jpg', caption: 'Instalaciones' },
+];
+
 export interface CategoryDef {
   key: string;
   label: string;
