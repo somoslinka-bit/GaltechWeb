@@ -518,6 +518,55 @@ export interface CategoryDef {
   images: string[];
 }
 
+export interface UpcomingProject {
+  id: number;
+  title: string;
+  location: string;
+  category: string;
+  description: string;
+  area?: string;
+  image: string;
+  estimatedDate?: string;
+  status: 'En proyecto' | 'En fabricación' | 'En montaje';
+}
+
+export const UPCOMING_PROJECTS: UpcomingProject[] = [
+  // Reemplazá image por '/renders/nombre.jpg' cuando tengas el render real
+  {
+    id: 1,
+    title: 'Nave Industrial — Cliente Confidencial',
+    location: 'Tandil, Buenos Aires',
+    category: 'Nave Industrial',
+    description: 'Nave de estructura metálica para uso industrial con puente grúa y oficinas integradas.',
+    area: '1.800 m²',
+    image: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&q=80&w=800',
+    estimatedDate: '2026',
+    status: 'En proyecto',
+  },
+  {
+    id: 2,
+    title: 'Depósito Logístico',
+    location: 'Azul, Buenos Aires',
+    category: 'Depósito',
+    description: 'Estructura para almacenamiento y distribución de insumos agrícolas.',
+    area: '3.200 m²',
+    image: 'https://images.unsplash.com/photo-1487958449943-2429e8be8625?auto=format&fit=crop&q=80&w=800',
+    estimatedDate: '2026',
+    status: 'En fabricación',
+  },
+  {
+    id: 3,
+    title: 'Complejo Deportivo Municipal',
+    location: 'Olavarría, Buenos Aires',
+    category: 'Complejo Deportivo',
+    description: 'Cancha cubierta con tribunas y vestuarios para uso comunitario.',
+    area: '2.100 m²',
+    image: 'https://images.unsplash.com/photo-1486325212027-8081e485255e?auto=format&fit=crop&q=80&w=800',
+    estimatedDate: '2026',
+    status: 'En montaje',
+  },
+];
+
 export const CATEGORIES: CategoryDef[] = [
   {
     key: 'agroquimicos',

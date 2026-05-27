@@ -12,9 +12,10 @@ import ContactCTA from './components/ContactCTA';
 import JobApplication from './components/JobApplication';
 import Footer from './components/Footer';
 import ProjectsPage from './components/ProjectsPage';
+import ProximamentePage from './components/ProximamentePage';
 
 function App() {
-  const [currentPage, setCurrentPage] = useState<'home' | 'proyectos'>('home');
+  const [currentPage, setCurrentPage] = useState<'home' | 'proyectos' | 'proximamente'>('home');
   const [initialCategory, setInitialCategory] = useState<string | null>(null);
 
   useEffect(() => {
@@ -25,6 +26,11 @@ function App() {
         const cat = parts[2] ?? null;
         setInitialCategory(cat || null);
         setCurrentPage('proyectos');
+        requestAnimationFrame(() => {
+          window.scrollTo({ top: 0, behavior: 'instant' as ScrollBehavior });
+        });
+      } else if (hash === '#/proximamente') {
+        setCurrentPage('proximamente');
         requestAnimationFrame(() => {
           window.scrollTo({ top: 0, behavior: 'instant' as ScrollBehavior });
         });
@@ -41,6 +47,10 @@ function App() {
 
   if (currentPage === 'proyectos') {
     return <ProjectsPage initialCategory={initialCategory} />;
+  }
+
+  if (currentPage === 'proximamente') {
+    return <ProximamentePage />;
   }
 
   return (
