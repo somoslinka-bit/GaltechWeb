@@ -6,7 +6,6 @@
     <title>GALTECH | Ingeniería y Estructuras Metálicas</title>
     <meta name="description" content="Más de 50 años construyendo galpones, naves industriales y estructuras metálicas en todo el país. Ingeniería, fabricación y montaje propios.">
 
-    <!-- Cuando migren el dominio, reemplazá esta URL por https://galtech.com.ar -->
     <meta property="og:url"         content="https://galtech-web.vercel.app/" />
     <meta property="og:type"        content="website" />
     <meta property="og:site_name"   content="GALTECH" />
@@ -22,12 +21,41 @@
     <meta name="twitter:title"       content="GALTECH | Ingeniería y Estructuras Metálicas" />
     <meta name="twitter:description" content="Más de 50 años construyendo galpones, naves industriales y estructuras metálicas en todo el país." />
     <meta name="twitter:image"       content="https://galtech-web.vercel.app/logo-galtech.png" />
+    <meta name="twitter:site"        content="@galtech_ar" />
+    <meta name="theme-color"         content="#1e3a8a" />
+
+    <!-- Cuando migren el dominio, reemplazá esta URL por https://galtech.com.ar -->
+    <link rel="canonical" href="https://galtech-web.vercel.app/" />
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://galtech-web.vercel.app/#organization",
+          "name": "GALTECH",
+          "url": "https://galtech-web.vercel.app/",
+          "logo": "https://galtech-web.vercel.app/logo-galtech.png",
+          "description": "Ingeniería y estructuras metálicas. Más de 50 años construyendo galpones y naves industriales.",
+          "areaServed": "AR"
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://galtech-web.vercel.app/#website",
+          "url": "https://galtech-web.vercel.app/",
+          "name": "GALTECH",
+          "publisher": { "@id": "https://galtech-web.vercel.app/#organization" }
+        }
+      ]
+    }
+    </script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link
-  href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
-  rel="stylesheet"
-/>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" media="print" onload="this.media='all'" />
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" /></noscript>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
     <script>
