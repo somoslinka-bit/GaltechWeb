@@ -435,7 +435,7 @@ export const FEATURED_CAROUSEL_PROJECTS: ProjectLocation[] = [
     year: '—',
     lat: -37.2944719,
     lng: -59.1902170,
-    imageUrl: '/Imagenes%20Proyectos/Agropack%20Agroquimico.JPG',
+    imageUrl: '/Imagenes%20Proyectos/Agropack%20Agroquimico.webp',
   },
   {
     id: 190,
@@ -446,7 +446,7 @@ export const FEATURED_CAROUSEL_PROJECTS: ProjectLocation[] = [
     year: '—',
     lat: -37.2829464,
     lng: -59.2086662,
-    imageUrl: '/Imagenes%20Proyectos/Agroquimico%20Cardinale.jpg',
+    imageUrl: '/Imagenes%20Proyectos/Agroquimico%20Cardinale.webp',
   },
   {
     id: 225,
@@ -457,7 +457,7 @@ export const FEATURED_CAROUSEL_PROJECTS: ProjectLocation[] = [
     year: '—',
     lat: -37.2905063,
     lng: -59.1917673,
-    imageUrl: '/Imagenes%20Proyectos/Deposito%20y%20Nave%20industrial%20Deconews.jpg',
+    imageUrl: '/Imagenes%20Proyectos/Deposito%20y%20Nave%20industrial%20Deconews.webp',
   },
   {
     id: 9001,
@@ -468,7 +468,7 @@ export const FEATURED_CAROUSEL_PROJECTS: ProjectLocation[] = [
     year: '—',
     lat: -37.3068486,
     lng: -59.1193360,
-    imageUrl: '/Imagenes%20Proyectos/Local%20comercial%20Yamaha.jpg',
+    imageUrl: '/Imagenes%20Proyectos/Local%20comercial%20Yamaha.webp',
   },
   {
     id: 30,
@@ -479,7 +479,7 @@ export const FEATURED_CAROUSEL_PROJECTS: ProjectLocation[] = [
     year: '—',
     lat: -37.1344901,
     lng: -58.5291910,
-    imageUrl: '/Imagenes%20Proyectos/Turcream%20c%C3%A1mara%20de%20frio.JPG',
+    imageUrl: '/Imagenes%20Proyectos/Turcream%20c%C3%A1mara%20de%20frio.webp',
   },
 ];
 
@@ -513,10 +513,10 @@ export const PROCESS_STEPS: ProcessStep[] = [
 
 // Imágenes del carrusel en la sección Nosotros — agregá o reordenás acá
 export const ABOUT_IMAGES: { src: string; caption: string }[] = [
-  { src: '/nosotros/DSC09430.jpg', caption: 'Nuestro equipo en obra' },
-  { src: '/nosotros/DSC09737.jpg', caption: 'Construcción industrial' },
-  { src: '/nosotros/Feed%20Galtech%20(5).png', caption: 'Galtech en acción' },
-  { src: '/nosotros/IMG_3021.jpg', caption: 'Instalaciones' },
+  { src: '/nosotros/DSC09430.webp', caption: 'Nuestro equipo en obra' },
+  { src: '/nosotros/DSC09737.webp', caption: 'Construcción industrial' },
+  { src: '/nosotros/Feed%20Galtech%20(5).webp', caption: 'Galtech en acción' },
+  { src: '/nosotros/IMG_3021.webp', caption: 'Instalaciones' },
 ];
 
 export interface CategoryDef {
@@ -581,16 +581,16 @@ export const CATEGORIES: CategoryDef[] = [
     label: 'Agroquímicos y semillas certificados',
     description: 'Instalaciones especializadas para el almacenamiento, distribución y manejo de insumos agrícolas certificados.',
     images: [
-      '/rubros/agroquimicos/Copia%20de%201000170182.JPG',
-      '/rubros/agroquimicos/Copia%20de%20Catriel.jpeg',
-      '/rubros/agroquimicos/Copia%20de%20DJI_0168.JPG',
-      '/rubros/agroquimicos/Copia%20de%20DSC09866.jpg',
-      '/rubros/agroquimicos/DJI_0422%20(1).jpg',
-      '/rubros/agroquimicos/DJI_0427.jpg',
-      '/rubros/agroquimicos/DJI_0523.jpg',
-      '/rubros/agroquimicos/DSC09868.jpg',
-      '/rubros/agroquimicos/La%20Bataglia.jpeg',
-      '/rubros/agroquimicos/Urruty%20(1).jpeg',
+      '/rubros/agroquimicos/Copia%20de%201000170182.webp',
+      '/rubros/agroquimicos/Copia%20de%20Catriel.webp',
+      '/rubros/agroquimicos/Copia%20de%20DJI_0168.webp',
+      '/rubros/agroquimicos/Copia%20de%20DSC09866.webp',
+      '/rubros/agroquimicos/DJI_0422%20(1).webp',
+      '/rubros/agroquimicos/DJI_0427.webp',
+      '/rubros/agroquimicos/DJI_0523.webp',
+      '/rubros/agroquimicos/DSC09868.webp',
+      '/rubros/agroquimicos/La%20Bataglia.webp',
+      '/rubros/agroquimicos/Urruty%20(1).webp',
     ],
   },
   {
@@ -598,17 +598,17 @@ export const CATEGORIES: CategoryDef[] = [
     label: 'Depósitos, naves industriales y logística',
     description: 'Estructuras de gran escala para operaciones logísticas, almacenamiento industrial y distribución.',
     images: [
-      '/rubros/depositos/1000421884%20(1).jpg',
-      '/rubros/depositos/744d6ed9-6ddd-4b11-99d3-e40c38b7880a%20(1).jpg',
-      '/rubros/depositos/DJI_0446.JPG',
-      '/rubros/depositos/DJI_0468.jpg',
-      '/rubros/depositos/DJI_0474%20(2).jpg',
-      '/rubros/depositos/DJI_0484.jpg',
-      '/rubros/depositos/DJI_0489.jpg',
-      '/rubros/depositos/DJI_0518.jpg',
-      '/rubros/depositos/WhatsApp%20Image%202024-10-18%20at%2012.27.03%20PM%20(1).jpeg',
-      '/rubros/depositos/dji_fly_20251112_171024_397_1763039124890_photo_optimized.JPG',
-      '/rubros/depositos/dji_fly_20251112_171148_403_1763039552303_photo_optimized.JPG',
+      '/rubros/depositos/1000421884%20(1).webp',
+      '/rubros/depositos/744d6ed9-6ddd-4b11-99d3-e40c38b7880a%20(1).webp',
+      '/rubros/depositos/DJI_0446.webp',
+      '/rubros/depositos/DJI_0468.webp',
+      '/rubros/depositos/DJI_0474%20(2).webp',
+      '/rubros/depositos/DJI_0484.webp',
+      '/rubros/depositos/DJI_0489.webp',
+      '/rubros/depositos/DJI_0518.webp',
+      '/rubros/depositos/WhatsApp%20Image%202024-10-18%20at%2012.27.03%20PM%20(1).webp',
+      '/rubros/depositos/dji_fly_20251112_171024_397_1763039124890_photo_optimized.webp',
+      '/rubros/depositos/dji_fly_20251112_171148_403_1763039552303_photo_optimized.webp',
     ],
   },
   {
@@ -616,9 +616,9 @@ export const CATEGORIES: CategoryDef[] = [
     label: 'Naves para agro y ganadería',
     description: 'Tambos, galpones de maquinaria y estructuras rurales adaptadas a las necesidades del campo.',
     images: [
-      '/rubros/naves-agro/DJI_0167.JPG',
-      '/rubros/naves-agro/dji_fly_20251112_170750_387_1763037881254_photo_optimized.JPG',
-      '/rubros/naves-agro/dji_fly_20251112_170822_389_1763038022915_photo_optimized.JPG',
+      '/rubros/naves-agro/DJI_0167.webp',
+      '/rubros/naves-agro/dji_fly_20251112_170750_387_1763037881254_photo_optimized.webp',
+      '/rubros/naves-agro/dji_fly_20251112_170822_389_1763038022915_photo_optimized.webp',
     ],
   },
   {
@@ -626,15 +626,15 @@ export const CATEGORIES: CategoryDef[] = [
     label: 'Locales comerciales',
     description: 'Espacios comerciales funcionales y de identidad propia. Combinamos estructura y estética para proyectos que representan a cada marca.',
     images: [
-      '/rubros/locales/Carlitos.png',
-      '/rubros/locales/Dise%C3%B1o%20sin%20t%C3%ADtulo%20(9).png',
-      '/rubros/locales/IMG-20190903-WA0004.jpg',
-      '/rubros/locales/Lifort.jpg',
-      '/rubros/locales/Locales%20Don%20Bosco.jpg',
-      '/rubros/locales/Nissan.png',
-      '/rubros/locales/WhatsApp%20Image%202021-04-29%20at%2018.26.04.jpeg',
-      '/rubros/locales/Yamaha%201.jpg',
-      '/rubros/locales/dji_fly_20251110_154048_357_1762803180581_photo_optimized.jpg',
+      '/rubros/locales/Carlitos.webp',
+      '/rubros/locales/Dise%C3%B1o%20sin%20t%C3%ADtulo%20(9).webp',
+      '/rubros/locales/IMG-20190903-WA0004.webp',
+      '/rubros/locales/Lifort.webp',
+      '/rubros/locales/Locales%20Don%20Bosco.webp',
+      '/rubros/locales/Nissan.webp',
+      '/rubros/locales/WhatsApp%20Image%202021-04-29%20at%2018.26.04.webp',
+      '/rubros/locales/Yamaha%201.webp',
+      '/rubros/locales/dji_fly_20251110_154048_357_1762803180581_photo_optimized.webp',
     ],
   },
   {
@@ -642,10 +642,10 @@ export const CATEGORIES: CategoryDef[] = [
     label: 'Oficinas',
     description: 'Soluciones de construcción industrial para espacios de trabajo, sedes corporativas y entornos productivos.',
     images: [
-      '/rubros/oficinas/DJI_0238.JPG',
-      '/rubros/oficinas/DJI_0252.JPG',
-      '/rubros/oficinas/DSC09568.jpg',
-      '/rubros/oficinas/dji_fly_20251110_152932_348_1762802574939_photo_optimized.jpg',
+      '/rubros/oficinas/DJI_0238.webp',
+      '/rubros/oficinas/DJI_0252.webp',
+      '/rubros/oficinas/DSC09568.webp',
+      '/rubros/oficinas/dji_fly_20251110_152932_348_1762802574939_photo_optimized.webp',
     ],
   },
   {
