@@ -20,7 +20,7 @@ const clients: { name: string; logo: string; darkBg?: boolean }[] = [
   { name: 'La Segunda Seguros',logo: '/Logos Clientes/La-Segunda-Seguros-nueva-marca-1.png' },
   { name: 'LOGODECO',          logo: '/Logos Clientes/LOGODECO.png' },
   { name: 'Materiales Tandil', logo: '/Logos Clientes/Materiales Tandil.png' },
-  { name: 'Olaf',              logo: '/Logos Clientes/Olaf.png' },
+  { name: 'Olaf',              logo: '/Logos Clientes/Olaf.png', darkBg: true },
   { name: 'Petrotandil',       logo: '/Logos Clientes/logo-petrotandil-b.png' },
   { name: 'Schang',            logo: '/Logos Clientes/Schang.png' },
   { name: 'Surco Nuevo',       logo: '/Logos Clientes/Surco Nuevo.png' },
