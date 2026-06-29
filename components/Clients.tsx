@@ -1,29 +1,28 @@
 import React from 'react';
 
 const clients: { name: string; logo: string; darkBg?: boolean }[] = [
-  { name: 'Agropac',           logo: '/Logos Clientes/Agropac.jpg' },
-  { name: 'Alfajores Payes',   logo: '/Logos Clientes/Alfajores Payes.jpeg' },
-  { name: 'Autosan',           logo: '/Logos Clientes/autosan.svg' },
+  { name: 'Agropac',           logo: '/Logos Clientes/Agropac.png' },
+  { name: 'Alfajores Payes',   logo: '/Logos Clientes/Alfajores Payes.png' },
   { name: 'Carlitos',          logo: '/Logos Clientes/Carlitos.png' },
   { name: 'Carranza Vial',     logo: '/Logos Clientes/Carranza Vial SRL.png' },
   { name: 'Catriel',           logo: '/Logos Clientes/Catriel.png' },
-  { name: 'Ceres Tolvas',      logo: '/Logos Clientes/maxresdefault.jpg' },
+  { name: 'Ceres Tolvas',      logo: '/Logos Clientes/maxresdefault.png' },
   { name: 'Coopagro Tandil',   logo: '/Logos Clientes/coopagro-tandil.png' },
   { name: 'CropTalent',        logo: '/Logos Clientes/CropTalent.png' },
-  { name: 'Distribuidora Z',   logo: '/Logos Clientes/Distribuidora Z.jpg' },
+  { name: 'Distribuidora Z',   logo: '/Logos Clientes/Distribuidora Z.png' },
   { name: 'El Tandil',         logo: '/Logos Clientes/El tandil.png' },
   { name: 'Estilo Olivia',     logo: '/Logos Clientes/Estilo Olivia.png' },
   { name: 'Folilagro',         logo: '/Logos Clientes/Folilagro2.png' },
-  { name: 'Grupo Batissttesa', logo: '/Logos Clientes/Grupo Batissttesa.gif' },
+  { name: 'Grupo Batissttesa', logo: '/Logos Clientes/Grupo Batissttesa.png' },
   { name: 'Irrisup',           logo: '/Logos Clientes/unnamed-2.png', darkBg: true },
-  { name: 'JLG Tandil',        logo: '/Logos Clientes/JLG-Tandil-scaled.jpg' },
+  { name: 'JLG Tandil',        logo: '/Logos Clientes/JLG-Tandil-scaled.png' },
   { name: 'La Casa del Piso',  logo: '/Logos Clientes/La casa del Piso.png' },
   { name: 'La Segunda Seguros',logo: '/Logos Clientes/La-Segunda-Seguros-nueva-marca-1.png' },
-  { name: 'LOGODECO',          logo: '/Logos Clientes/LOGODECO.jpg' },
+  { name: 'LOGODECO',          logo: '/Logos Clientes/LOGODECO.png' },
   { name: 'Materiales Tandil', logo: '/Logos Clientes/Materiales Tandil.png' },
   { name: 'Olaf',              logo: '/Logos Clientes/Olaf.png' },
   { name: 'Petrotandil',       logo: '/Logos Clientes/logo-petrotandil-b.png' },
-  { name: 'Schang',            logo: '/Logos Clientes/Schang.jpg' },
+  { name: 'Schang',            logo: '/Logos Clientes/Schang.png' },
   { name: 'Surco Nuevo',       logo: '/Logos Clientes/Surco Nuevo.png' },
   { name: 'Terramar',          logo: '/Logos Clientes/terramar-brands-logo-png_seeklogo-328028.png' },
 ];
@@ -38,7 +37,7 @@ function LogoItem({ client, id }: { client: typeof clients[0]; id: string }) {
         <img
           src={client.logo}
           alt={client.name}
-          className="max-h-full max-w-full object-contain"
+          className="w-full h-full object-contain"
         />
       </div>
     );
@@ -47,12 +46,12 @@ function LogoItem({ client, id }: { client: typeof clients[0]; id: string }) {
   return (
     <div
       key={id}
-      className="mx-6 w-52 h-20 flex items-center justify-center flex-shrink-0 p-1 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+      className="mx-6 w-52 h-20 flex items-center justify-center flex-shrink-0 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
     >
       <img
         src={client.logo}
         alt={client.name}
-        className="max-h-full max-w-full object-contain mix-blend-multiply"
+        className="w-full h-full object-contain mix-blend-multiply"
       />
     </div>
   );

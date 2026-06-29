@@ -435,7 +435,7 @@ export const FEATURED_CAROUSEL_PROJECTS: ProjectLocation[] = [
     year: '—',
     lat: -37.2944719,
     lng: -59.1902170,
-    imageUrl: '/Imagenes%20Proyectos/Agropack%20Agroquimico.webp',
+    imageUrl: '/rubros/agroquimicos/DJI_0427.webp',
   },
   {
     id: 190,
@@ -514,7 +514,6 @@ export const PROCESS_STEPS: ProcessStep[] = [
 // Imágenes del carrusel en la sección Nosotros — agregá o reordenás acá
 export const ABOUT_IMAGES: { src: string; caption: string }[] = [
   { src: '/nosotros/DSC09430.webp', caption: 'Nuestro equipo en obra' },
-  { src: '/nosotros/DSC09737.webp', caption: 'Construcción industrial' },
   { src: '/nosotros/Feed%20Galtech%20(5).webp', caption: 'Galtech en acción' },
   { src: '/nosotros/IMG_3021.webp', caption: 'Instalaciones' },
 ];
@@ -539,39 +538,41 @@ export interface UpcomingProject {
 }
 
 export const UPCOMING_PROJECTS: UpcomingProject[] = [
-  // Reemplazá image por '/renders/nombre.jpg' cuando tengas el render real
   {
     id: 1,
-    title: 'Nave Industrial — Cliente Confidencial',
-    location: 'Tandil, Buenos Aires',
-    category: 'Nave Industrial',
-    description: 'Nave de estructura metálica para uso industrial con puente grúa y oficinas integradas.',
-    area: '1.800 m²',
-    image: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&q=80&w=800',
-    estimatedDate: '2026',
+    title: 'Locales Pinamar',
+    location: '',
+    category: 'Locales comerciales',
+    description: '',
+    image: '/Imagenes%20Proyectos/proximos%20-proyectos/Locales%20Pinamar%20(Locales%20comerciales)jpg.webp',
     status: 'En proyecto',
   },
   {
     id: 2,
-    title: 'Depósito Logístico',
-    location: 'Azul, Buenos Aires',
-    category: 'Depósito',
-    description: 'Estructura para almacenamiento y distribución de insumos agrícolas.',
-    area: '3.200 m²',
-    image: 'https://images.unsplash.com/photo-1487958449943-2429e8be8625?auto=format&fit=crop&q=80&w=800',
-    estimatedDate: '2026',
-    status: 'En fabricación',
+    title: 'Payes',
+    location: '',
+    category: 'Oficinas',
+    description: '',
+    image: '/Imagenes%20Proyectos/proximos%20-proyectos/Payes%20(Oficinas).webp',
+    status: 'En proyecto',
   },
   {
     id: 3,
-    title: 'Complejo Deportivo Municipal',
-    location: 'Olavarría, Buenos Aires',
-    category: 'Complejo Deportivo',
-    description: 'Cancha cubierta con tribunas y vestuarios para uso comunitario.',
-    area: '2.100 m²',
-    image: 'https://images.unsplash.com/photo-1486325212027-8081e485255e?auto=format&fit=crop&q=80&w=800',
-    estimatedDate: '2026',
-    status: 'En montaje',
+    title: 'Ranquel',
+    location: '',
+    category: 'Local comercial',
+    description: '',
+    image: '/Imagenes%20Proyectos/proximos%20-proyectos/Ranquel%20(Local%20comercial)%20.webp',
+    status: 'En proyecto',
+  },
+  {
+    id: 4,
+    title: 'Zócalos',
+    location: '',
+    category: 'Locales comerciales',
+    description: '',
+    image: '/Imagenes%20Proyectos/proximos%20-proyectos/Zocalos%20(Locales%20comerciales).webp',
+    status: 'En proyecto',
   },
 ];
 
@@ -583,7 +584,6 @@ export const CATEGORIES: CategoryDef[] = [
     images: [
       '/rubros/agroquimicos/Copia%20de%201000170182.webp',
       '/rubros/agroquimicos/Copia%20de%20Catriel.webp',
-      '/rubros/agroquimicos/Copia%20de%20DJI_0168.webp',
       '/rubros/agroquimicos/Copia%20de%20DSC09866.webp',
       '/rubros/agroquimicos/DJI_0422%20(1).webp',
       '/rubros/agroquimicos/DJI_0427.webp',

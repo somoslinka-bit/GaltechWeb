@@ -2,12 +2,6 @@ import React from 'react';
 import { ArrowLeft } from 'lucide-react';
 import { LOGO_BASE64, UPCOMING_PROJECTS } from '../constants';
 
-const STATUS_COLORS: Record<string, string> = {
-  'En proyecto':    'bg-blue-500/20 text-blue-300 border border-blue-500/30',
-  'En fabricación': 'bg-amber-500/20 text-amber-300 border border-amber-500/30',
-  'En montaje':     'bg-green-500/20 text-green-300 border border-green-500/30',
-};
-
 const ProximamentePage = () => {
   return (
     <div className="min-h-screen bg-slate-900 font-sans">
@@ -39,12 +33,11 @@ const ProximamentePage = () => {
           </h1>
           <p className="text-lg text-slate-400 max-w-2xl">
             Proyectos contratados actualmente en etapa de ingeniería, fabricación o montaje.
-            Las imágenes son renders orientativos y pueden variar del resultado final.
           </p>
         </div>
       </section>
 
-      {/* Grid completo */}
+      {/* Grid */}
       <section className="pb-24 px-4">
         <div className="max-w-7xl mx-auto">
 
@@ -53,61 +46,28 @@ const ProximamentePage = () => {
               <p className="text-slate-500 text-lg">No hay proyectos cargados por el momento.</p>
             </div>
           ) : (
-            <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
               {UPCOMING_PROJECTS.map((project) => (
                 <article
                   key={project.id}
                   className="bg-slate-800 rounded-sm overflow-hidden border border-slate-700 hover:border-slate-500 transition-colors"
                 >
-                  {/* Imagen / render */}
-                  <div className="relative overflow-hidden bg-slate-700" style={{ aspectRatio: '16/9' }}>
+                  {/* Imagen */}
+                  <div className="overflow-hidden" style={{ aspectRatio: '4/3' }}>
                     <img
                       src={project.image}
                       alt={project.title}
-                      className="w-full h-full object-cover opacity-85"
+                      className="w-full h-full object-cover"
                       loading="lazy"
-                      onError={(e) => {
-                        e.currentTarget.src =
-                          'https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&q=80&w=800';
-                      }}
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent" />
-                    <div className="absolute top-3 left-3">
-                      <span className={`inline-flex items-center px-2.5 py-1 rounded-sm text-xs font-bold ${STATUS_COLORS[project.status]}`}>
-                        {project.status}
-                      </span>
-                    </div>
-                    {/* Badge render */}
-                    <div className="absolute bottom-3 right-3">
-                      <span className="inline-flex items-center px-2 py-0.5 rounded text-xs text-slate-400 bg-slate-900/70">
-                        Imagen referencial
-                      </span>
-                    </div>
                   </div>
 
                   {/* Info */}
-                  <div className="p-6">
-                    <p className="text-xs text-slate-500 uppercase tracking-widest mb-2">{project.category}</p>
-                    <h3 className="font-bold text-white text-lg mb-2 leading-snug">{project.title}</h3>
-                    <p className="text-sm text-slate-400 leading-relaxed mb-4">{project.description}</p>
-
-                    <div className="flex flex-wrap gap-x-6 gap-y-1 text-sm">
-                      <span className="text-slate-400">
-                        <span className="text-slate-500">Ubicación</span>{' '}
-                        {project.location}
-                      </span>
-                      {project.area && (
-                        <span className="text-slate-400">
-                          <span className="text-slate-500">Superficie</span>{' '}
-                          {project.area}
-                        </span>
-                      )}
-                    </div>
-
-                    {project.estimatedDate && (
-                      <p className="mt-4 text-sm font-semibold text-[#ff8727]">
-                        Entrega estimada: {project.estimatedDate}
-                      </p>
+                  <div className="p-4">
+                    <p className="text-xs text-[#ff8727] uppercase tracking-widest mb-1">{project.category}</p>
+                    <h3 className="font-bold text-white text-base leading-snug">{project.title}</h3>
+                    {project.area && (
+                      <p className="text-sm text-slate-400 mt-1">{project.area}</p>
                     )}
                   </div>
                 </article>
