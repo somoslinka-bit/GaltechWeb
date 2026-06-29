@@ -32,7 +32,7 @@ function LogoItem({ client, id }: { client: typeof clients[0]; id: string }) {
     return (
       <div
         key={id}
-        className="mx-6 w-52 h-20 flex items-center justify-center flex-shrink-0 bg-slate-700 rounded-lg px-3 opacity-70 hover:opacity-100 transition-all duration-300"
+        className="mx-6 w-52 h-24 flex items-center justify-center flex-shrink-0 bg-slate-700 rounded-lg px-3 opacity-70 hover:opacity-100 transition-all duration-300"
       >
         <img
           src={client.logo}
@@ -46,7 +46,7 @@ function LogoItem({ client, id }: { client: typeof clients[0]; id: string }) {
   return (
     <div
       key={id}
-      className="mx-6 w-52 h-20 flex items-center justify-center flex-shrink-0 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
+      className="mx-6 w-52 h-24 flex items-center justify-center flex-shrink-0 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
     >
       <img
         src={client.logo}
