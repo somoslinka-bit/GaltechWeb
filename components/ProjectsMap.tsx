@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { MapContainer, TileLayer, Marker, Tooltip, useMap } from 'react-leaflet';
+import { MapContainer, TileLayer, Marker, useMap } from 'react-leaflet';
 import L from 'leaflet';
 import { MAP_POINTS, CATEGORIES } from '../constants';
 import { Gallery4 } from './ui/gallery4';
@@ -134,11 +134,7 @@ const ProjectsMap = () => {
               key={point.id}
               position={[point.lat, point.lng]}
               icon={customIcon}
-            >
-              <Tooltip direction="top" offset={[0, -20]} opacity={0.95}>
-                <span style={{ fontSize: 11, color: '#64748b' }}>{point.location}</span>
-              </Tooltip>
-            </Marker>
+            />
           ))}
         </MapContainer>
       </div>
