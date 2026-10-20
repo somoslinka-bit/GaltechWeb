@@ -18,6 +18,7 @@ const Header = () => {
     { name: 'Nosotros', href: '#nosotros' },
     { name: 'Servicios', href: '#servicios' },
     { name: 'Proyectos', href: '#obras' },
+    { name: 'Próximas obras', href: '#/proximamente' },
     { name: 'Proceso', href: '#proceso' },
     { name: 'Trabajá con nosotros', href: '#postulaciones' },
   ];
@@ -40,12 +41,12 @@ const Header = () => {
         </a>
 
         {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center space-x-8">
+        <nav className="hidden lg:flex items-center space-x-5 xl:space-x-8">
           {navLinks.map((link) => (
             <a 
               key={link.name} 
               href={link.href}
-              className={`text-sm font-medium uppercase tracking-wider hover:text-galtech-accent transition-colors ${
+              className={`text-xs xl:text-sm font-medium uppercase tracking-wider whitespace-nowrap hover:text-galtech-accent transition-colors ${
                 isScrolled ? 'text-slate-900' : 'text-white'
               }`}
             >
@@ -62,7 +63,7 @@ const Header = () => {
         </nav>
 
         {/* Mobile Menu Button */}
-        <div className="md:hidden">
+        <div className="lg:hidden">
           <button 
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             className={`p-2 rounded-md ${isScrolled ? 'text-slate-900' : 'text-white'}`}
@@ -74,7 +75,7 @@ const Header = () => {
 
       {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <div className="md:hidden absolute top-full left-0 w-full bg-slate-900 text-white shadow-xl">
+        <div className="lg:hidden absolute top-full left-0 w-full bg-slate-900 text-white shadow-xl">
           <div className="px-4 pt-2 pb-6 space-y-1 flex flex-col items-center">
             {navLinks.map((link) => (
               <a 

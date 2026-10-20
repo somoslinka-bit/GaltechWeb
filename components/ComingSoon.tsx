@@ -51,7 +51,7 @@ const ComingSoon = () => {
               <div className="h-52 overflow-hidden relative bg-slate-700">
                 <img
                   src={project.image}
-                  alt={project.title}
+                  alt={`Próxima obra Galtech: ${project.category}`}
                   className="w-full h-full object-cover opacity-80"
                   loading="lazy"
                   onError={(e) => {
@@ -67,9 +67,10 @@ const ComingSoon = () => {
                 </div>
               </div>
               <div className="p-5">
-                <p className="text-xs text-slate-500 uppercase tracking-wide mb-1">{project.category}</p>
-                <h3 className="font-bold text-white text-base mb-1 leading-snug">{project.title}</h3>
-                <p className="text-sm text-slate-400">{project.location}</p>
+                <h3 className="font-bold text-white text-base mb-1 leading-snug">{project.category}</h3>
+                {project.location && (
+                  <p className="text-sm text-slate-400">{project.location}</p>
+                )}
                 {project.area && (
                   <p className="mt-1 text-xs text-slate-500">{project.area}</p>
                 )}

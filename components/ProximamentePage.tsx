@@ -56,7 +56,7 @@ const ProximamentePage = () => {
                   <div className="overflow-hidden" style={{ aspectRatio: '4/3' }}>
                     <img
                       src={project.image}
-                      alt={project.title}
+                      alt={`Próxima obra Galtech: ${project.category}`}
                       className="w-full h-full object-cover"
                       loading="lazy"
                     />
@@ -64,8 +64,8 @@ const ProximamentePage = () => {
 
                   {/* Info */}
                   <div className="p-4">
-                    <p className="text-xs text-[#ff8727] uppercase tracking-widest mb-1">{project.category}</p>
-                    <h3 className="font-bold text-white text-base leading-snug">{project.title}</h3>
+                    <p className="text-xs text-[#ff8727] uppercase tracking-widest mb-1">{project.status}</p>
+                    <h3 className="font-bold text-white text-base leading-snug">{project.category}</h3>
                     {project.area && (
                       <p className="text-sm text-slate-400 mt-1">{project.area}</p>
                     )}
