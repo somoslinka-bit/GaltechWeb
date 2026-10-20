@@ -1,61 +1,64 @@
 import React from 'react';
 
-const clients: { name: string; logo: string; darkBg?: boolean }[] = [
-  { name: 'Agropac',           logo: '/Logos Clientes/Agropac.png' },
-  { name: 'Alfajores Payes',   logo: '/Logos Clientes/Alfajores Payes.png' },
-  { name: 'Carlitos',          logo: '/Logos Clientes/Carlitos.png' },
-  { name: 'Carranza Vial',     logo: '/Logos Clientes/Carranza Vial SRL.png' },
-  { name: 'Catriel',           logo: '/Logos Clientes/Catriel.png' },
-  { name: 'Ceres Tolvas',      logo: '/Logos Clientes/maxresdefault.png' },
-  { name: 'Coopagro Tandil',   logo: '/Logos Clientes/coopagro-tandil.png' },
-  { name: 'CropTalent',        logo: '/Logos Clientes/CropTalent.png' },
-  { name: 'Distribuidora Z',   logo: '/Logos Clientes/Distribuidora Z.png' },
-  { name: 'El Tandil',         logo: '/Logos Clientes/El tandil.png' },
-  { name: 'Estilo Olivia',     logo: '/Logos Clientes/Estilo Olivia.png' },
-  { name: 'Folilagro',         logo: '/Logos Clientes/Folilagro2.png' },
-  { name: 'Grupo Batissttesa', logo: '/Logos Clientes/Grupo Batissttesa.png' },
-  { name: 'Irrisup',           logo: '/Logos Clientes/unnamed-2.png', darkBg: true },
-  { name: 'JLG Tandil',        logo: '/Logos Clientes/JLG-Tandil-scaled.png' },
-  { name: 'La Casa del Piso',  logo: '/Logos Clientes/La casa del Piso.png' },
-  { name: 'La Segunda Seguros',logo: '/Logos Clientes/La-Segunda-Seguros-nueva-marca-1.png' },
-  { name: 'LOGODECO',          logo: '/Logos Clientes/LOGODECO.png' },
-  { name: 'Materiales Tandil', logo: '/Logos Clientes/Materiales Tandil.png' },
-  { name: 'Olaf',              logo: '/Logos Clientes/Olaf.png', darkBg: true },
-  { name: 'Petrotandil',       logo: '/Logos Clientes/logo-petrotandil-b.png' },
-  { name: 'Schang',            logo: '/Logos Clientes/Schang.png' },
-  { name: 'Surco Nuevo',       logo: '/Logos Clientes/Surco Nuevo.png' },
-  { name: 'Terramar',          logo: '/Logos Clientes/terramar-brands-logo-png_seeklogo-328028.png' },
+// ratio = ancho / alto del logo ya recortado a su contenido (sin márgenes)
+const clients: { name: string; logo: string; ratio: number; darkBg?: boolean }[] = [
+  { name: 'Agropac',            logo: '/Logos Clientes/Agropac.png',                ratio: 1.4 },
+  { name: 'Alfajores Payes',    logo: '/Logos Clientes/Alfajores Payes.png',        ratio: 1.02 },
+  { name: 'Carlitos',           logo: '/Logos Clientes/Carlitos.png',               ratio: 3.73 },
+  { name: 'Carranza Vial',      logo: '/Logos Clientes/Carranza Vial SRL.png',      ratio: 1 },
+  { name: 'Catriel',            logo: '/Logos Clientes/Catriel.png',                ratio: 3.2 },
+  { name: 'Ceres Tolvas',       logo: '/Logos Clientes/maxresdefault.png',          ratio: 4.6 },
+  { name: 'Coopagro Tandil',    logo: '/Logos Clientes/coopagro-tandil.png',        ratio: 1.27 },
+  { name: 'CropTalent',         logo: '/Logos Clientes/CropTalent.png',             ratio: 2.51 },
+  { name: 'Distribuidora Z',    logo: '/Logos Clientes/Distribuidora Z.png',        ratio: 0.69 },
+  { name: 'El Tandil',          logo: '/Logos Clientes/El tandil.png',              ratio: 1 },
+  { name: 'Estilo Oliva',       logo: '/Logos Clientes/Estilo Olivia.png',          ratio: 0.9 },
+  { name: 'Folilagro',          logo: '/Logos Clientes/Folilagro2.png',             ratio: 4.02 },
+  { name: 'Grupo Battistessa',  logo: '/Logos Clientes/Grupo Batissttesa.png',      ratio: 4.02 },
+  { name: 'Irrisur',            logo: '/Logos Clientes/unnamed-2.png',              ratio: 3.86, darkBg: true },
+  { name: 'José Luis González', logo: '/Logos Clientes/JLG-Tandil-scaled.png',      ratio: 1.02 },
+  { name: 'La Casa del Piso',   logo: '/Logos Clientes/La casa del Piso.png',       ratio: 1.02 },
+  { name: 'La Segunda Seguros', logo: '/Logos Clientes/La-Segunda-Seguros-nueva-marca-1.png', ratio: 3.72 },
+  { name: 'Deconews',           logo: '/Logos Clientes/LOGODECO.png',               ratio: 1.92 },
+  { name: 'Materiales Tandil',  logo: '/Logos Clientes/Materiales Tandil.png',      ratio: 2.31 },
+  { name: 'Olafil',             logo: '/Logos Clientes/Olaf.png',                   ratio: 3.35, darkBg: true },
+  { name: 'Petrotandil',        logo: '/Logos Clientes/logo-petrotandil-b.png',     ratio: 4.12 },
+  { name: 'Schang',             logo: '/Logos Clientes/Schang.png',                 ratio: 2.61 },
+  { name: 'Surco Nuevo',        logo: '/Logos Clientes/Surco Nuevo.png',            ratio: 1.66 },
+  { name: 'Terramar',           logo: '/Logos Clientes/terramar-brands-logo-png_seeklogo-328028.png', ratio: 2.12 },
 ];
 
-function LogoItem({ client, id }: { client: typeof clients[0]; id: string }) {
+// Todos los logos ocupan la misma área visual: uno cuadrado y uno alargado
+// se perciben del mismo tamaño aunque sus dimensiones sean distintas.
+const LOGO_AREA = 5600; // px² (≈ 75×75 para un logo cuadrado)
+const LOGO_MAX_W = 180;
+const LOGO_MAX_H = 76;
+
+function logoSize(ratio: number) {
+  let width = Math.sqrt(LOGO_AREA * ratio);
+  let height = width / ratio;
+  if (width > LOGO_MAX_W) { width = LOGO_MAX_W; height = width / ratio; }
+  if (height > LOGO_MAX_H) { height = LOGO_MAX_H; width = height * ratio; }
+  return { width: Math.round(width), height: Math.round(height) };
+}
+
+const LogoItem: React.FC<{ client: typeof clients[0] }> = ({ client }) => {
+  const size = logoSize(client.ratio);
+
   if (client.darkBg) {
     return (
-      <div
-        key={id}
-        className="mx-6 w-52 h-24 flex items-center justify-center flex-shrink-0 bg-slate-700 rounded-lg px-3 opacity-70 hover:opacity-100 transition-all duration-300"
-      >
-        <img
-          src={client.logo}
-          alt={client.name}
-          className="w-full h-full object-contain"
-        />
+      <div className="mx-6 w-52 h-24 flex items-center justify-center flex-shrink-0 bg-slate-700 rounded-lg opacity-70 hover:opacity-100 transition-all duration-300">
+        <img src={client.logo} alt={client.name} style={size} className="object-contain" />
       </div>
     );
   }
 
   return (
-    <div
-      key={id}
-      className="mx-6 w-52 h-24 flex items-center justify-center flex-shrink-0 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300"
-    >
-      <img
-        src={client.logo}
-        alt={client.name}
-        className="w-full h-full object-contain mix-blend-multiply"
-      />
+    <div className="mx-6 w-52 h-24 flex items-center justify-center flex-shrink-0 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300">
+      <img src={client.logo} alt={client.name} style={size} className="object-contain mix-blend-multiply" />
     </div>
   );
-}
+};
 
 export default function Clients() {
   return (
@@ -70,10 +73,10 @@ export default function Clients() {
       <div className="relative w-full flex overflow-hidden group">
         <div className="flex w-max animate-marquee group-hover:[animation-play-state:paused]">
           {clients.map((client, index) => (
-            <LogoItem key={index} client={client} id={String(index)} />
+            <LogoItem key={index} client={client} />
           ))}
           {clients.map((client, index) => (
-            <LogoItem key={`dup-${index}`} client={client} id={`dup-${index}`} />
+            <LogoItem key={`dup-${index}`} client={client} />
           ))}
         </div>
       </div>
