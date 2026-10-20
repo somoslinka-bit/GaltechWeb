@@ -89,10 +89,10 @@ const ProjectsMap = () => {
             Cobertura
           </span>
           <h2 className="text-3xl font-bold text-white">
-            Presencia nacional
+            Dónde trabajamos
           </h2>
           <p className="mt-2 text-slate-400 max-w-xl text-sm md:text-base">
-            Ejecutamos obras industriales en distintas localidades del país, acompañando el crecimiento productivo de nuestros clientes.
+            Ejecutamos obras industriales en distintas localidades, acompañando el crecimiento productivo de nuestros clientes.
           </p>
         </div>
       </div>
