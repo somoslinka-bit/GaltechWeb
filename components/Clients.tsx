@@ -3,9 +3,9 @@ import React from 'react';
 // ratio = ancho / alto del logo ya recortado a su contenido (sin márgenes)
 const clients: { name: string; logo: string; ratio: number; darkBg?: boolean }[] = [
   { name: 'Agropac',            logo: '/Logos Clientes/Agropac.png',                ratio: 1.4 },
-  { name: 'Alfajores Payes',    logo: '/Logos Clientes/Alfajores Payes.png',        ratio: 1.02 },
-  { name: 'Carlitos',           logo: '/Logos Clientes/Carlitos.png',               ratio: 3.73 },
-  { name: 'Carranza Vial',      logo: '/Logos Clientes/Carranza Vial SRL.png',      ratio: 1 },
+  { name: 'Alfajores Payes',    logo: '/Logos Clientes/Alfajores Payes.png',        ratio: 0.94 },
+  { name: 'Carlitos',           logo: '/Logos Clientes/Carlitos.png',               ratio: 3.75 },
+  { name: 'Carranza Vial',      logo: '/Logos Clientes/Carranza Vial SRL.png',      ratio: 5.44 },
   { name: 'Catriel',            logo: '/Logos Clientes/Catriel.png',                ratio: 3.2 },
   { name: 'Ceres Tolvas',       logo: '/Logos Clientes/maxresdefault.png',          ratio: 4.6 },
   { name: 'Coopagro Tandil',    logo: '/Logos Clientes/coopagro-tandil.png',        ratio: 1.27 },
@@ -14,17 +14,17 @@ const clients: { name: string; logo: string; ratio: number; darkBg?: boolean }[]
   { name: 'El Tandil',          logo: '/Logos Clientes/El tandil.png',              ratio: 1 },
   { name: 'Estilo Oliva',       logo: '/Logos Clientes/Estilo Olivia.png',          ratio: 0.9 },
   { name: 'Folilagro',          logo: '/Logos Clientes/Folilagro2.png',             ratio: 4.02 },
-  { name: 'Grupo Battistessa',  logo: '/Logos Clientes/Grupo Batissttesa.png',      ratio: 4.02 },
+  { name: 'Grupo Battistessa',  logo: '/Logos Clientes/Grupo Batissttesa.png',      ratio: 4.19 },
   { name: 'Irrisur',            logo: '/Logos Clientes/unnamed-2.png',              ratio: 3.86, darkBg: true },
   { name: 'José Luis González', logo: '/Logos Clientes/JLG-Tandil-scaled.png',      ratio: 1.02 },
-  { name: 'La Casa del Piso',   logo: '/Logos Clientes/La casa del Piso.png',       ratio: 1.02 },
+  { name: 'La Casa del Piso',   logo: '/Logos Clientes/La casa del Piso.png',       ratio: 1 },
   { name: 'La Segunda Seguros', logo: '/Logos Clientes/La-Segunda-Seguros-nueva-marca-1.png', ratio: 3.72 },
   { name: 'Deconews',           logo: '/Logos Clientes/LOGODECO.png',               ratio: 1.92 },
   { name: 'Materiales Tandil',  logo: '/Logos Clientes/Materiales Tandil.png',      ratio: 2.31 },
   { name: 'Olafil',             logo: '/Logos Clientes/Olaf.png',                   ratio: 3.35, darkBg: true },
   { name: 'Petrotandil',        logo: '/Logos Clientes/logo-petrotandil-b.png',     ratio: 4.12 },
   { name: 'Schang',             logo: '/Logos Clientes/Schang.png',                 ratio: 2.61 },
-  { name: 'Surco Nuevo',        logo: '/Logos Clientes/Surco Nuevo.png',            ratio: 1.66 },
+  { name: 'Surco Nuevo',        logo: '/Logos Clientes/Surco Nuevo.png',            ratio: 4.17 },
   { name: 'Terramar',           logo: '/Logos Clientes/terramar-brands-logo-png_seeklogo-328028.png', ratio: 2.12 },
 ];
 
