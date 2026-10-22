@@ -513,9 +513,13 @@ export const PROCESS_STEPS: ProcessStep[] = [
 
 // Imágenes del carrusel en la sección Nosotros — agregá o reordenás acá
 export const ABOUT_IMAGES: { src: string; caption: string }[] = [
-  { src: '/nosotros/DSC09430.webp', caption: 'Nuestro equipo en obra' },
-  { src: '/nosotros/Feed%20Galtech%20(5).webp', caption: 'Galtech en acción' },
-  { src: '/nosotros/IMG_3021.webp', caption: 'Instalaciones' },
+  { src: '/nosotros/dji-20260915-0369.webp', caption: 'Planta de producción' },
+  { src: '/nosotros/dsc-4770.webp', caption: 'Soldadura y armado' },
+  { src: '/nosotros/dsc09430.webp', caption: 'Fabricación de estructuras' },
+  { src: '/nosotros/dsc09497.webp', caption: 'Nuestro equipo en planta' },
+  { src: '/nosotros/img-3021.webp', caption: 'El equipo Galtech' },
+  { src: '/nosotros/photo-2023-04-29.webp', caption: 'Nuestra flota' },
+  { src: '/nosotros/recortarla.webp', caption: 'Logística y traslado' },
 ];
 
 export interface CategoryDef {
@@ -591,6 +595,9 @@ export const CATEGORIES: CategoryDef[] = [
       '/rubros/agroquimicos/DSC09868.webp',
       '/rubros/agroquimicos/La%20Bataglia.webp',
       '/rubros/agroquimicos/Urruty%20(1).webp',
+      '/rubros/agroquimicos/dji-0167.webp',
+      '/rubros/agroquimicos/dji-fly-20251112-170750.webp',
+      '/rubros/agroquimicos/dji-fly-20251112-170822.webp',
     ],
   },
   {
@@ -616,9 +623,9 @@ export const CATEGORIES: CategoryDef[] = [
     label: 'Naves para agro y ganadería',
     description: 'Tambos, galpones de maquinaria y estructuras rurales adaptadas a las necesidades del campo.',
     images: [
-      '/rubros/naves-agro/DJI_0167.webp',
-      '/rubros/naves-agro/dji_fly_20251112_170750_387_1763037881254_photo_optimized.webp',
-      '/rubros/naves-agro/dji_fly_20251112_170822_389_1763038022915_photo_optimized.webp',
+      '/rubros/naves-agro/portones-metalicos-corredizos.webp',
+      '/rubros/naves-agro/la-guapa.webp',
+      '/rubros/naves-agro/dji-0265.webp',
     ],
   },
   {
@@ -626,15 +633,17 @@ export const CATEGORIES: CategoryDef[] = [
     label: 'Locales comerciales',
     description: 'Espacios comerciales funcionales y de identidad propia. Combinamos estructura y estética para proyectos que representan a cada marca.',
     images: [
-      '/rubros/locales/Carlitos.webp',
-      '/rubros/locales/Dise%C3%B1o%20sin%20t%C3%ADtulo%20(9).webp',
-      '/rubros/locales/IMG-20190903-WA0004.webp',
-      '/rubros/locales/Lifort.webp',
-      '/rubros/locales/Locales%20Don%20Bosco.webp',
-      '/rubros/locales/Nissan.webp',
-      '/rubros/locales/WhatsApp%20Image%202021-04-29%20at%2018.26.04.webp',
-      '/rubros/locales/Yamaha%201.webp',
-      '/rubros/locales/dji_fly_20251110_154048_357_1762803180581_photo_optimized.webp',
+      '/rubros/locales/carlitos.webp',
+      '/rubros/locales/diseno-sin-titulo-9.webp',
+      '/rubros/locales/img-20190903-wa0004.webp',
+      '/rubros/locales/lifort.webp',
+      '/rubros/locales/locales-don-bosco.webp',
+      '/rubros/locales/nissan.webp',
+      '/rubros/locales/whatsapp-2021-04-29.webp',
+      '/rubros/locales/yamaha.webp',
+      '/rubros/locales/dji-fly-20251110-154048.webp',
+      '/rubros/locales/img-7977.webp',
+      '/rubros/locales/20220201-100753.webp',
     ],
   },
   {
