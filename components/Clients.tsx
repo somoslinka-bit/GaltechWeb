@@ -18,6 +18,7 @@ const clients: { name: string; logo: string; ratio: number; darkBg?: boolean }[]
   { name: 'La Segunda Seguros', logo: '/Logos Clientes/La-Segunda-Seguros-nueva-marca-1.png', ratio: 3.72 },
   { name: 'Deconews',           logo: '/Logos Clientes/LOGODECO.png',               ratio: 1.92 },
   { name: 'Materiales Tandil',  logo: '/Logos Clientes/Materiales Tandil.png',      ratio: 2.31 },
+  { name: 'Olafil',             logo: '/Logos Clientes/Olafil.png',                 ratio: 3.69 },
   { name: 'Petrotandil',        logo: '/Logos Clientes/logo-petrotandil-b.png',     ratio: 4.12 },
   { name: 'Schang',             logo: '/Logos Clientes/Schang.png',                 ratio: 2.61 },
   { name: 'Surco Nuevo',        logo: '/Logos Clientes/Surco Nuevo.png',            ratio: 4.17 },
