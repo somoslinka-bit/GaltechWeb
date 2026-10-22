@@ -662,10 +662,8 @@ export const CATEGORIES: CategoryDef[] = [
     label: 'Complejos deportivos',
     description: 'Canchas cubiertas, polideportivos y clubes con estructuras metálicas de grandes luces y alta durabilidad.',
     images: [
-      'https://images.unsplash.com/photo-1531834685032-c34bf0d84c7c?auto=format&fit=crop&q=80&w=800',
-      'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=800',
-      'https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?auto=format&fit=crop&q=80&w=800',
-      'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=800',
+      '/rubros/deportivos/complejo-padel-1.webp',
+      '/rubros/deportivos/complejo-padel-2.webp',
     ],
   },
 ];

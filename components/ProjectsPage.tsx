@@ -5,6 +5,8 @@ import { LOGO_BASE64, CATEGORIES } from '../constants';
 function GalleryCarousel({ images }: { images: string[] }) {
   const [current, setCurrent] = useState(0);
   const [loaded, setLoaded] = useState<boolean[]>(images.map(() => false));
+  // Fotos verticales: se muestran enteras (contain) sobre un fondo desenfocado
+  const [portrait, setPortrait] = useState<boolean[]>(images.map(() => false));
   // Imágenes que ya fueron renderizadas al menos una vez (no volver a desmontar)
   const [renderedSet, setRenderedSet] = useState<Set<number>>(new Set([0]));
   const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
@@ -46,12 +48,19 @@ function GalleryCarousel({ images }: { images: string[] }) {
     startAutoplay();
   };
 
-  const markLoaded = (i: number) => {
+  const markLoaded = (i: number, img?: HTMLImageElement) => {
     setLoaded((prev) => {
       const next = [...prev];
       next[i] = true;
       return next;
     });
+    if (img && img.naturalHeight > img.naturalWidth) {
+      setPortrait((prev) => {
+        const next = [...prev];
+        next[i] = true;
+        return next;
+      });
+    }
   };
 
   return (
@@ -66,13 +75,22 @@ function GalleryCarousel({ images }: { images: string[] }) {
               <div className="w-8 h-8 border-2 border-white/20 border-t-white rounded-full animate-spin" />
             </div>
           )}
+          {renderedSet.has(i) && portrait[i] && (
+            <img
+              src={src}
+              alt=""
+              aria-hidden="true"
+              className="absolute inset-0 w-full h-full object-cover blur-2xl scale-110 opacity-60"
+              referrerPolicy="no-referrer"
+            />
+          )}
           {renderedSet.has(i) && (
             <img
               src={src}
               alt=""
-              className="w-full h-full object-cover"
+              className={`relative w-full h-full ${portrait[i] ? 'object-contain' : 'object-cover'}`}
               referrerPolicy="no-referrer"
-              onLoad={() => markLoaded(i)}
+              onLoad={(e) => markLoaded(i, e.currentTarget)}
               onError={(e) => {
                 e.currentTarget.src =
                   'https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=800&q=80';
