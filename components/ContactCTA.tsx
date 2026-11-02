@@ -9,7 +9,7 @@ const ContactCTA = () => {
           ¿Tenés un proyecto en mente?
         </h2>
         <p className="text-lg md:text-xl text-slate-300 mb-10 max-w-2xl mx-auto">
-          Contanos tu idea. Nuestro equipo técnico analizará la viabilidad y te brindará una cotización a medida.
+          Contanos tu idea. Nuestro equipo técnico lo analizará y te brindará una cotización a medida.
         </p>
         
         <div className="flex flex-col sm:flex-row items-center justify-center">

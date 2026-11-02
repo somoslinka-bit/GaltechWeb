@@ -1,5 +1,6 @@
 import React from 'react';
 import { ChevronRight, ArrowDown } from 'lucide-react';
+import { asset } from '../lib/utils';
 
 const Hero = () => {
   return (
@@ -13,7 +14,7 @@ const Hero = () => {
           loop
           playsInline
           preload="auto"
-          poster="/hero-poster.jpg"
+          poster={asset('/hero-poster.jpg')}
           className="w-full h-full object-cover"
           ref={(el) => {
             if (el) {
@@ -21,7 +22,7 @@ const Hero = () => {
             }
           }}
         >
-          <source src="/hero-video.mp4" type="video/mp4" />
+          <source src={asset('/hero-video.mp4')} type="video/mp4" />
         </video>
       </div>
 

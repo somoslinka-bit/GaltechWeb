@@ -4,4 +4,4 @@ Allow: /
 User-agent: OAI-SearchBot
 Allow: /
 
-Sitemap: https://galtech-web.vercel.app/sitemap.xml
+Sitemap: https://galtech.com.ar/sitemap.xml

@@ -10,8 +10,9 @@ import {
   MapPin
 } from 'lucide-react';
 import { ServiceItem, ProjectLocation, ProcessStep, Differentiator } from './types';
+import { asset } from './lib/utils';
 
-export const LOGO_BASE64 = '/logo-galtech.png';
+export const LOGO_BASE64 = asset('/logo-galtech.png');
 
 export const SERVICES: ServiceItem[] = [
   {
@@ -435,7 +436,7 @@ export const FEATURED_CAROUSEL_PROJECTS: ProjectLocation[] = [
     year: '—',
     lat: -37.2944719,
     lng: -59.1902170,
-    imageUrl: '/rubros/agroquimicos/DJI_0427.webp',
+    imageUrl: asset('/rubros/agroquimicos/DJI_0427.webp'),
   },
   {
     id: 190,
@@ -446,7 +447,7 @@ export const FEATURED_CAROUSEL_PROJECTS: ProjectLocation[] = [
     year: '—',
     lat: -37.2829464,
     lng: -59.2086662,
-    imageUrl: '/Imagenes%20Proyectos/Agroquimico%20Cardinale.webp',
+    imageUrl: asset('/Imagenes%20Proyectos/Agroquimico%20Cardinale.webp'),
   },
   {
     id: 225,
@@ -457,7 +458,7 @@ export const FEATURED_CAROUSEL_PROJECTS: ProjectLocation[] = [
     year: '—',
     lat: -37.2905063,
     lng: -59.1917673,
-    imageUrl: '/Imagenes%20Proyectos/Deposito%20y%20Nave%20industrial%20Deconews.webp',
+    imageUrl: asset('/Imagenes%20Proyectos/Deposito%20y%20Nave%20industrial%20Deconews.webp'),
   },
   {
     id: 9001,
@@ -468,7 +469,7 @@ export const FEATURED_CAROUSEL_PROJECTS: ProjectLocation[] = [
     year: '—',
     lat: -37.3068486,
     lng: -59.1193360,
-    imageUrl: '/Imagenes%20Proyectos/Local%20comercial%20Yamaha.webp',
+    imageUrl: asset('/Imagenes%20Proyectos/Local%20comercial%20Yamaha.webp'),
   },
   {
     id: 30,
@@ -479,7 +480,7 @@ export const FEATURED_CAROUSEL_PROJECTS: ProjectLocation[] = [
     year: '—',
     lat: -37.1344901,
     lng: -58.5291910,
-    imageUrl: '/Imagenes%20Proyectos/Turcream%20c%C3%A1mara%20de%20frio.webp',
+    imageUrl: asset('/Imagenes%20Proyectos/Turcream%20c%C3%A1mara%20de%20frio.webp'),
   },
 ];
 
@@ -513,13 +514,13 @@ export const PROCESS_STEPS: ProcessStep[] = [
 
 // Imágenes del carrusel en la sección Nosotros — agregá o reordenás acá
 export const ABOUT_IMAGES: { src: string; caption: string }[] = [
-  { src: '/nosotros/dji-20260915-0369.webp', caption: 'Planta de producción' },
-  { src: '/nosotros/dsc-4770.webp', caption: 'Soldadura y armado' },
-  { src: '/nosotros/dsc09430.webp', caption: 'Fabricación de estructuras' },
-  { src: '/nosotros/dsc09497.webp', caption: 'Nuestro equipo en planta' },
-  { src: '/nosotros/img-3021.webp', caption: 'El equipo Galtech' },
-  { src: '/nosotros/photo-2023-04-29.webp', caption: 'Nuestra flota' },
-  { src: '/nosotros/recortarla.webp', caption: 'Logística y traslado' },
+  { src: asset('/nosotros/dji-20260915-0369.webp'), caption: 'Planta de producción' },
+  { src: asset('/nosotros/dsc-4770.webp'), caption: 'Soldadura y armado' },
+  { src: asset('/nosotros/dsc09430.webp'), caption: 'Fabricación de estructuras' },
+  { src: asset('/nosotros/dsc09497.webp'), caption: 'Nuestro equipo en planta' },
+  { src: asset('/nosotros/img-3021.webp'), caption: 'El equipo Galtech' },
+  { src: asset('/nosotros/photo-2023-04-29.webp'), caption: 'Nuestra flota' },
+  { src: asset('/nosotros/recortarla.webp'), caption: 'Logística y traslado' },
 ];
 
 export interface CategoryDef {
@@ -548,7 +549,7 @@ export const UPCOMING_PROJECTS: UpcomingProject[] = [
     location: '',
     category: 'Locales comerciales',
     description: '',
-    image: '/Imagenes%20Proyectos/proximos%20-proyectos/Locales%20Pinamar%20(Locales%20comerciales)jpg.webp',
+    image: asset('/Imagenes%20Proyectos/proximos%20-proyectos/Locales%20Pinamar%20(Locales%20comerciales)jpg.webp'),
     status: 'En proyecto',
   },
   {
@@ -557,7 +558,7 @@ export const UPCOMING_PROJECTS: UpcomingProject[] = [
     location: '',
     category: 'Oficinas',
     description: '',
-    image: '/Imagenes%20Proyectos/proximos%20-proyectos/Payes%20(Oficinas).webp',
+    image: asset('/Imagenes%20Proyectos/proximos%20-proyectos/Payes%20(Oficinas).webp'),
     status: 'En proyecto',
   },
   {
@@ -566,7 +567,7 @@ export const UPCOMING_PROJECTS: UpcomingProject[] = [
     location: '',
     category: 'Local comercial',
     description: '',
-    image: '/Imagenes%20Proyectos/proximos%20-proyectos/Ranquel%20(Local%20comercial)%20.webp',
+    image: asset('/Imagenes%20Proyectos/proximos%20-proyectos/Ranquel%20(Local%20comercial)%20.webp'),
     status: 'En proyecto',
   },
   {
@@ -575,7 +576,7 @@ export const UPCOMING_PROJECTS: UpcomingProject[] = [
     location: '',
     category: 'Locales comerciales',
     description: '',
-    image: '/Imagenes%20Proyectos/proximos%20-proyectos/Zocalos%20(Locales%20comerciales).webp',
+    image: asset('/Imagenes%20Proyectos/proximos%20-proyectos/Zocalos%20(Locales%20comerciales).webp'),
     status: 'En proyecto',
   },
 ];
@@ -586,21 +587,21 @@ export const CATEGORIES: CategoryDef[] = [
     label: 'Agroquímicos y semillas certificados',
     description: 'Instalaciones especializadas para el almacenamiento, distribución y manejo de insumos agrícolas certificados.',
     images: [
-      '/rubros/agroquimicos/Copia%20de%201000170182.webp',
-      '/rubros/agroquimicos/Copia%20de%20Catriel.webp',
-      '/rubros/agroquimicos/Copia%20de%20DSC09866.webp',
-      '/rubros/agroquimicos/DJI_0422%20(1).webp',
-      '/rubros/agroquimicos/DJI_0427.webp',
-      '/rubros/agroquimicos/DJI_0523.webp',
-      '/rubros/agroquimicos/DSC09868.webp',
-      '/rubros/agroquimicos/La%20Bataglia.webp',
-      '/rubros/agroquimicos/Urruty%20(1).webp',
-      '/rubros/agroquimicos/dji-0167.webp',
-      '/rubros/agroquimicos/dji-fly-20251112-170750.webp',
-      '/rubros/agroquimicos/dji-fly-20251112-170822.webp',
-      '/rubros/agroquimicos/agro-1000465280.webp',
-      '/rubros/agroquimicos/agro-img-8521.webp',
-      '/rubros/agroquimicos/agro-photo-2025-09-10.webp',
+      asset('/rubros/agroquimicos/Copia%20de%201000170182.webp'),
+      asset('/rubros/agroquimicos/Copia%20de%20Catriel.webp'),
+      asset('/rubros/agroquimicos/Copia%20de%20DSC09866.webp'),
+      asset('/rubros/agroquimicos/DJI_0422%20(1).webp'),
+      asset('/rubros/agroquimicos/DJI_0427.webp'),
+      asset('/rubros/agroquimicos/DJI_0523.webp'),
+      asset('/rubros/agroquimicos/DSC09868.webp'),
+      asset('/rubros/agroquimicos/La%20Bataglia.webp'),
+      asset('/rubros/agroquimicos/Urruty%20(1).webp'),
+      asset('/rubros/agroquimicos/dji-0167.webp'),
+      asset('/rubros/agroquimicos/dji-fly-20251112-170750.webp'),
+      asset('/rubros/agroquimicos/dji-fly-20251112-170822.webp'),
+      asset('/rubros/agroquimicos/agro-1000465280.webp'),
+      asset('/rubros/agroquimicos/agro-img-8521.webp'),
+      asset('/rubros/agroquimicos/agro-photo-2025-09-10.webp'),
     ],
   },
   {
@@ -608,24 +609,24 @@ export const CATEGORIES: CategoryDef[] = [
     label: 'Depósitos, naves industriales y logística',
     description: 'Estructuras de gran escala para operaciones logísticas, almacenamiento industrial y distribución.',
     images: [
-      '/rubros/depositos/deposito-1000421884.webp',
-      '/rubros/depositos/deposito-1000494235.webp',
-      '/rubros/depositos/deposito-744d6ed9.webp',
-      '/rubros/depositos/deposito-7a5c8517.webp',
-      '/rubros/depositos/deposito-dji-0446.webp',
-      '/rubros/depositos/deposito-dji-0468.webp',
-      '/rubros/depositos/deposito-dji-0474.webp',
-      '/rubros/depositos/deposito-dji-0484.webp',
-      '/rubros/depositos/deposito-dji-0489.webp',
-      '/rubros/depositos/deposito-dji-0518.webp',
-      '/rubros/depositos/deposito-dji-0739.webp',
-      '/rubros/depositos/deposito-dji-0899.webp',
-      '/rubros/depositos/deposito-dji-fly-20251112-171024.webp',
-      '/rubros/depositos/deposito-dji-fly-20251112-171148.webp',
-      '/rubros/depositos/deposito-img-3846.webp',
-      '/rubros/depositos/deposito-img-8205.webp',
-      '/rubros/depositos/deposito-photo-2023-09-08.webp',
-      '/rubros/depositos/deposito-whatsapp-2024-10-18.webp',
+      asset('/rubros/depositos/deposito-1000421884.webp'),
+      asset('/rubros/depositos/deposito-1000494235.webp'),
+      asset('/rubros/depositos/deposito-744d6ed9.webp'),
+      asset('/rubros/depositos/deposito-7a5c8517.webp'),
+      asset('/rubros/depositos/deposito-dji-0446.webp'),
+      asset('/rubros/depositos/deposito-dji-0468.webp'),
+      asset('/rubros/depositos/deposito-dji-0474.webp'),
+      asset('/rubros/depositos/deposito-dji-0484.webp'),
+      asset('/rubros/depositos/deposito-dji-0489.webp'),
+      asset('/rubros/depositos/deposito-dji-0518.webp'),
+      asset('/rubros/depositos/deposito-dji-0739.webp'),
+      asset('/rubros/depositos/deposito-dji-0899.webp'),
+      asset('/rubros/depositos/deposito-dji-fly-20251112-171024.webp'),
+      asset('/rubros/depositos/deposito-dji-fly-20251112-171148.webp'),
+      asset('/rubros/depositos/deposito-img-3846.webp'),
+      asset('/rubros/depositos/deposito-img-8205.webp'),
+      asset('/rubros/depositos/deposito-photo-2023-09-08.webp'),
+      asset('/rubros/depositos/deposito-whatsapp-2024-10-18.webp'),
     ],
   },
   {
@@ -633,9 +634,9 @@ export const CATEGORIES: CategoryDef[] = [
     label: 'Naves para agro y ganadería',
     description: 'Tambos, galpones de maquinaria y estructuras rurales adaptadas a las necesidades del campo.',
     images: [
-      '/rubros/naves-agro/portones-metalicos-corredizos.webp',
-      '/rubros/naves-agro/la-guapa.webp',
-      '/rubros/naves-agro/dji-0265.webp',
+      asset('/rubros/naves-agro/portones-metalicos-corredizos.webp'),
+      asset('/rubros/naves-agro/la-guapa.webp'),
+      asset('/rubros/naves-agro/dji-0265.webp'),
     ],
   },
   {
@@ -643,17 +644,17 @@ export const CATEGORIES: CategoryDef[] = [
     label: 'Locales comerciales',
     description: 'Espacios comerciales funcionales y de identidad propia. Combinamos estructura y estética para proyectos que representan a cada marca.',
     images: [
-      '/rubros/locales/carlitos.webp',
-      '/rubros/locales/diseno-sin-titulo-9.webp',
-      '/rubros/locales/img-20190903-wa0004.webp',
-      '/rubros/locales/lifort.webp',
-      '/rubros/locales/locales-don-bosco.webp',
-      '/rubros/locales/nissan.webp',
-      '/rubros/locales/whatsapp-2021-04-29.webp',
-      '/rubros/locales/yamaha.webp',
-      '/rubros/locales/dji-fly-20251110-154048.webp',
-      '/rubros/locales/img-7977.webp',
-      '/rubros/locales/20220201-100753.webp',
+      asset('/rubros/locales/carlitos.webp'),
+      asset('/rubros/locales/diseno-sin-titulo-9.webp'),
+      asset('/rubros/locales/img-20190903-wa0004.webp'),
+      asset('/rubros/locales/lifort.webp'),
+      asset('/rubros/locales/locales-don-bosco.webp'),
+      asset('/rubros/locales/nissan.webp'),
+      asset('/rubros/locales/whatsapp-2021-04-29.webp'),
+      asset('/rubros/locales/yamaha.webp'),
+      asset('/rubros/locales/dji-fly-20251110-154048.webp'),
+      asset('/rubros/locales/img-7977.webp'),
+      asset('/rubros/locales/20220201-100753.webp'),
     ],
   },
   {
@@ -661,11 +662,11 @@ export const CATEGORIES: CategoryDef[] = [
     label: 'Oficinas',
     description: 'Soluciones de construcción industrial para espacios de trabajo, sedes corporativas y entornos productivos.',
     images: [
-      '/rubros/oficinas/oficina-dji-0238.webp',
-      '/rubros/oficinas/oficina-dji-0252.webp',
-      '/rubros/oficinas/oficina-dsc09568.webp',
-      '/rubros/oficinas/oficina-dji-fly-20251110-152932.webp',
-      '/rubros/oficinas/oficina-1000276786.webp',
+      asset('/rubros/oficinas/oficina-dji-0238.webp'),
+      asset('/rubros/oficinas/oficina-dji-0252.webp'),
+      asset('/rubros/oficinas/oficina-dsc09568.webp'),
+      asset('/rubros/oficinas/oficina-dji-fly-20251110-152932.webp'),
+      asset('/rubros/oficinas/oficina-1000276786.webp'),
     ],
   },
   {
@@ -673,8 +674,8 @@ export const CATEGORIES: CategoryDef[] = [
     label: 'Complejos deportivos',
     description: 'Canchas cubiertas, polideportivos y clubes con estructuras metálicas de grandes luces y alta durabilidad.',
     images: [
-      '/rubros/deportivos/complejo-padel-1.webp',
-      '/rubros/deportivos/complejo-padel-2.webp',
+      asset('/rubros/deportivos/complejo-padel-1.webp'),
+      asset('/rubros/deportivos/complejo-padel-2.webp'),
     ],
   },
 ];
