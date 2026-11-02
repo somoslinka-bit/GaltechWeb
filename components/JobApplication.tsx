@@ -8,7 +8,6 @@ import {
   submitApplication,
 } from '../lib/job-application';
 
-const WHATSAPP_URL = 'https://wa.me/5492494517644';
 const MAX_EMPLEOS = 3;
 
 const STEPS = ['Datos personales', 'Puesto y situación actual', 'Empleos anteriores', 'Preguntas generales'];
@@ -444,11 +443,7 @@ const JobApplication = () => {
 
                   {error && (
                     <div className="bg-red-50 border border-red-200 text-red-700 text-sm rounded-sm p-3">
-                      No pudimos enviar tu solicitud. Probá de nuevo en unos minutos o escribinos por{' '}
-                      <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" className="underline font-semibold">
-                        WhatsApp
-                      </a>
-                      .
+                      No pudimos enviar tu solicitud. Probá de nuevo en unos minutos.
                     </div>
                   )}
 
