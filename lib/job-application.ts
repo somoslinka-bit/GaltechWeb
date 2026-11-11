@@ -1,6 +1,7 @@
 // Envío de la solicitud de empleo.
-// Todo el envío pasa por acá: cuando esté el mail del dominio solo hay que
-// definir VITE_JOB_FORM_ENDPOINT (URL que recibe el JSON y manda el mail).
+// Lo recibe el plugin "Galtech Web" en el WordPress de galtech.com.ar, que lo
+// manda por mail a info@galtech.com.ar. Para usar otra URL, definir
+// VITE_JOB_FORM_ENDPOINT.
 
 export interface PreviousJob {
   empresa: string;
@@ -130,13 +131,18 @@ const calcularEdad = (fechaNacimiento: string): number | null => {
   return edad;
 };
 
-const ENDPOINT: string | undefined = (import.meta as any).env?.VITE_JOB_FORM_ENDPOINT;
+const RUTA_WP = '/wp-admin/admin-ajax.php?action=galtech_postulacion';
+
+// En galtech.com.ar se usa la misma web (sin CORS); desde Vercel o en local, el dominio completo
+const endpointPorDefecto = (): string =>
+  typeof window !== 'undefined' && window.location.hostname.endsWith('galtech.com.ar')
+    ? RUTA_WP
+    : `https://galtech.com.ar${RUTA_WP}`;
+
+const ENDPOINT: string =
+  (import.meta as any).env?.VITE_JOB_FORM_ENDPOINT || endpointPorDefecto();
 
 export const submitApplication = async (data: ApplicationData, honeypot: string) => {
-  if (!ENDPOINT) {
-    throw new Error('VITE_JOB_FORM_ENDPOINT no está configurado');
-  }
-
   const payload = {
     ...data,
     // Solo mandamos los empleos que tengan al menos la empresa cargada
